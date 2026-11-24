@@ -1,0 +1,431 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "notice": "DEMO CONTENT — These are sample mock test configurations for practice only. Not official SSC/HSSC/Banking exam papers.",
+    "lastUpdated": "2026-11-24"
+  },
+  "tests": [
+    {
+      "id": "mock-ssc-cgl-demo",
+      "name": {
+        "en": "SSC CGL Demo Test",
+        "hi": "SSC CGL डेमो परीक्षा"
+      },
+      "examType": "ssc",
+      "examCode": "SSC-CGL",
+      "tier": "free",
+      "description": {
+        "en": "Sample Combined Graduate Level exam pattern. 4 sections with 25 questions each.",
+        "hi": "संयुक्त स्नातक स्तरीय परीक्षा का नमूना पैटर्न। 4 सेक्शन में 25-25 प्रश्न।"
+      },
+      "totalQuestions": 100,
+      "totalMarks": 200,
+      "duration": 3600,
+      "negativeMarking": 0.5,
+      "marksPerCorrect": 2,
+      "sections": [
+        {
+          "id": "general-intelligence",
+          "name": { "en": "General Intelligence & Reasoning", "hi": "सामान्य बुद्धि और तर्क" },
+          "category": "reasoning",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        },
+        {
+          "id": "general-awareness",
+          "name": { "en": "General Awareness", "hi": "सामान्य जागरूकता" },
+          "category": "general-knowledge",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        },
+        {
+          "id": "quantitative-aptitude",
+          "name": { "en": "Quantitative Aptitude", "hi": "मात्रात्मक अभिरुचि" },
+          "category": "mathematics",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        },
+        {
+          "id": "english-comprehension",
+          "name": { "en": "English Comprehension", "hi": "अंग्रेजी भाषा" },
+          "category": "english",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        }
+      ],
+      "instructions": {
+        "en": [
+          "Total duration: 60 minutes",
+          "Each correct answer carries 2 marks",
+          "0.5 marks deducted for each wrong answer",
+          "No negative marking for unattempted questions",
+          "This is a DEMO test for practice purposes only",
+          "Actual SSC CGL exam may have different pattern"
+        ],
+        "hi": [
+          "कुल समय: 60 मिनट",
+          "प्रत्येक सही उत्तर के लिए 2 अंक",
+          "प्रत्येक गलत उत्तर पर 0.5 अंक की कटौती",
+          "अनुत्तरित प्रश्नों पर नेगेटिव मार्किंग नहीं",
+          "यह केवल अभ्यास के लिए डेमो परीक्षा है",
+          "वास्तविक SSC CGL परीक्षा का पैटर्न भिन्न हो सकता है"
+        ]
+      },
+      "categoryDistribution": {
+        "reasoning": 25,
+        "general-knowledge": 25,
+        "mathematics": 25,
+        "english": 25
+      },
+      "difficultyDistribution": {
+        "easy": 40,
+        "medium": 45,
+        "hard": 15
+      },
+      "tags": ["ssc", "cgl", "demo"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "mock-hssc-clerk-demo",
+      "name": {
+        "en": "HSSC Clerk Demo Test",
+        "hi": "HSSC क्लर्क डेमो परीक्षा"
+      },
+      "examType": "hssc",
+      "examCode": "HSSC-CLERK",
+      "tier": "free",
+      "description": {
+        "en": "Sample Haryana SSC Clerk exam pattern with Haryana GK and general subjects.",
+        "hi": "हरियाणा SSC क्लर्क परीक्षा का नमूना पैटर्न, हरियाणा GK और सामान्य विषय।"
+      },
+      "totalQuestions": 100,
+      "totalMarks": 100,
+      "duration": 5400,
+      "negativeMarking": 0.25,
+      "marksPerCorrect": 1,
+      "sections": [
+        {
+          "id": "haryana-gk-section",
+          "name": { "en": "Haryana General Knowledge", "hi": "हरियाणा सामान्य ज्ञान" },
+          "category": "haryana-gk",
+          "questions": 25,
+          "marks": 25,
+          "duration": null
+        },
+        {
+          "id": "general-awareness-section",
+          "name": { "en": "General Awareness", "hi": "सामान्य जागरूकता" },
+          "category": "general-knowledge",
+          "questions": 20,
+          "marks": 20,
+          "duration": null
+        },
+        {
+          "id": "reasoning-section",
+          "name": { "en": "Reasoning & Mental Ability", "hi": "तर्कशक्ति और मानसिक योग्यता" },
+          "category": "reasoning",
+          "questions": 20,
+          "marks": 20,
+          "duration": null
+        },
+        {
+          "id": "maths-section",
+          "name": { "en": "Numerical Aptitude", "hi": "संख्यात्मक अभिरुचि" },
+          "category": "mathematics",
+          "questions": 20,
+          "marks": 20,
+          "duration": null
+        },
+        {
+          "id": "hindi-section",
+          "name": { "en": "Hindi Language", "hi": "हिंदी भाषा" },
+          "category": "hindi-grammar",
+          "questions": 15,
+          "marks": 15,
+          "duration": null
+        }
+      ],
+      "instructions": {
+        "en": [
+          "Total duration: 90 minutes",
+          "Each correct answer carries 1 mark",
+          "0.25 marks deducted for each wrong answer",
+          "Special focus on Haryana-specific questions",
+          "This is a DEMO test for practice purposes only",
+          "Actual HSSC Clerk exam may have different pattern"
+        ],
+        "hi": [
+          "कुल समय: 90 मिनट",
+          "प्रत्येक सही उत्तर के लिए 1 अंक",
+          "प्रत्येक गलत उत्तर पर 0.25 अंक की कटौती",
+          "हरियाणा-विशिष्ट प्रश्नों पर विशेष ध्यान",
+          "यह केवल अभ्यास के लिए डेमो परीक्षा है",
+          "वास्तविक HSSC क्लर्क परीक्षा का पैटर्न भिन्न हो सकता है"
+        ]
+      },
+      "categoryDistribution": {
+        "haryana-gk": 25,
+        "general-knowledge": 20,
+        "reasoning": 20,
+        "mathematics": 20,
+        "hindi-grammar": 15
+      },
+      "difficultyDistribution": {
+        "easy": 50,
+        "medium": 40,
+        "hard": 10
+      },
+      "tags": ["hssc", "clerk", "haryana", "demo"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "mock-banking-ibps-po-demo",
+      "name": {
+        "en": "IBPS PO Demo Test",
+        "hi": "IBPS PO डेमो परीक्षा"
+      },
+      "examType": "banking",
+      "examCode": "IBPS-PO",
+      "tier": "free",
+      "description": {
+        "en": "Sample IBPS PO Prelims exam pattern. 3 sections with time limits.",
+        "hi": "IBPS PO प्रारंभिक परीक्षा का नमूना पैटर्न। समय सीमा के साथ 3 सेक्शन।"
+      },
+      "totalQuestions": 100,
+      "totalMarks": 100,
+      "duration": 3600,
+      "negativeMarking": 0.25,
+      "marksPerCorrect": 1,
+      "sections": [
+        {
+          "id": "english-language",
+          "name": { "en": "English Language", "hi": "अंग्रेजी भाषा" },
+          "category": "english",
+          "questions": 30,
+          "marks": 30,
+          "duration": 1200
+        },
+        {
+          "id": "numerical-ability",
+          "name": { "en": "Numerical Ability", "hi": "संख्यात्मक क्षमता" },
+          "category": "mathematics",
+          "questions": 35,
+          "marks": 35,
+          "duration": 1200
+        },
+        {
+          "id": "reasoning-ability",
+          "name": { "en": "Reasoning Ability", "hi": "तर्कशक्ति" },
+          "category": "reasoning",
+          "questions": 35,
+          "marks": 35,
+          "duration": 1200
+        }
+      ],
+      "instructions": {
+        "en": [
+          "Total duration: 60 minutes (20 min per section)",
+          "Each correct answer carries 1 mark",
+          "0.25 marks deducted for each wrong answer",
+          "Each section has a separate time limit of 20 minutes",
+          "You cannot switch to another section during its time",
+          "This is a DEMO test for practice purposes only",
+          "Actual IBPS PO exam may have different pattern"
+        ],
+        "hi": [
+          "कुल समय: 60 मिनट (प्रति सेक्शन 20 मिनट)",
+          "प्रत्येक सही उत्तर के लिए 1 अंक",
+          "प्रत्येक गलत उत्तर पर 0.25 अंक की कटौती",
+          "प्रत्येक सेक्शन की अलग 20 मिनट की समय सीमा",
+          "समय के दौरान दूसरे सेक्शन में नहीं जा सकते",
+          "यह केवल अभ्यास के लिए डेमो परीक्षा है",
+          "वास्तविक IBPS PO परीक्षा का पैटर्न भिन्न हो सकता है"
+        ]
+      },
+      "categoryDistribution": {
+        "english": 30,
+        "mathematics": 35,
+        "reasoning": 35
+      },
+      "difficultyDistribution": {
+        "easy": 30,
+        "medium": 50,
+        "hard": 20
+      },
+      "tags": ["banking", "ibps", "po", "demo"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "mock-ssc-chsl-demo",
+      "name": {
+        "en": "SSC CHSL Demo Test",
+        "hi": "SSC CHSL डेमो परीक्षा"
+      },
+      "examType": "ssc",
+      "examCode": "SSC-CHSL",
+      "tier": "premium",
+      "description": {
+        "en": "Sample Combined Higher Secondary Level exam pattern for LDC/DEO posts.",
+        "hi": "LDC/DEO पदों के लिए संयुक्त उच्च माध्यमिक स्तरीय परीक्षा का नमूना पैटर्न।"
+      },
+      "totalQuestions": 100,
+      "totalMarks": 200,
+      "duration": 3600,
+      "negativeMarking": 0.5,
+      "marksPerCorrect": 2,
+      "sections": [
+        {
+          "id": "general-intelligence-chsl",
+          "name": { "en": "General Intelligence & Reasoning", "hi": "सामान्य बुद्धि और तर्क" },
+          "category": "reasoning",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        },
+        {
+          "id": "english-language-chsl",
+          "name": { "en": "English Language (Basic Knowledge)", "hi": "अंग्रेजी भाषा (बुनियादी ज्ञान)" },
+          "category": "english",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        },
+        {
+          "id": "quantitative-aptitude-chsl",
+          "name": { "en": "Quantitative Aptitude (Basic)", "hi": "मात्रात्मक अभिरुचि (बुनियादी)" },
+          "category": "mathematics",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        },
+        {
+          "id": "general-awareness-chsl",
+          "name": { "en": "General Awareness", "hi": "सामान्य जागरूकता" },
+          "category": "general-knowledge",
+          "questions": 25,
+          "marks": 50,
+          "duration": null
+        }
+      ],
+      "instructions": {
+        "en": [
+          "Total duration: 60 minutes",
+          "Each correct answer carries 2 marks",
+          "0.5 marks deducted for each wrong answer",
+          "Questions are of 10+2 (Higher Secondary) level",
+          "This is a DEMO test for practice purposes only",
+          "Actual SSC CHSL exam may have different pattern"
+        ],
+        "hi": [
+          "कुल समय: 60 मिनट",
+          "प्रत्येक सही उत्तर के लिए 2 अंक",
+          "प्रत्येक गलत उत्तर पर 0.5 अंक की कटौती",
+          "प्रश्न 10+2 (उच्च माध्यमिक) स्तर के हैं",
+          "यह केवल अभ्यास के लिए डेमो परीक्षा है",
+          "वास्तविक SSC CHSL परीक्षा का पैटर्न भिन्न हो सकता है"
+        ]
+      },
+      "categoryDistribution": {
+        "reasoning": 25,
+        "english": 25,
+        "mathematics": 25,
+        "general-knowledge": 25
+      },
+      "difficultyDistribution": {
+        "easy": 50,
+        "medium": 40,
+        "hard": 10
+      },
+      "tags": ["ssc", "chsl", "ldc", "deo", "demo"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "mock-hssc-police-demo",
+      "name": {
+        "en": "Haryana Police Constable Demo Test",
+        "hi": "हरियाणा पुलिस कांस्टेबल डेमो परीक्षा"
+      },
+      "examType": "hssc",
+      "examCode": "HSSC-POLICE",
+      "tier": "premium",
+      "description": {
+        "en": "Sample Haryana Police Constable exam with Haryana GK, General Science, and reasoning.",
+        "hi": "हरियाणा GK, सामान्य विज्ञान और तर्क के साथ हरियाणा पुलिस कांस्टेबल नमूना परीक्षा।"
+      },
+      "totalQuestions": 100,
+      "totalMarks": 100,
+      "duration": 5400,
+      "negativeMarking": 0,
+      "marksPerCorrect": 1,
+      "sections": [
+        {
+          "id": "haryana-gk-police",
+          "name": { "en": "Haryana General Knowledge", "hi": "हरियाणा सामान्य ज्ञान" },
+          "category": "haryana-gk",
+          "questions": 30,
+          "marks": 30,
+          "duration": null
+        },
+        {
+          "id": "general-science-police",
+          "name": { "en": "General Science", "hi": "सामान्य विज्ञान" },
+          "category": "general-science",
+          "questions": 25,
+          "marks": 25,
+          "duration": null
+        },
+        {
+          "id": "reasoning-police",
+          "name": { "en": "Mental Ability & Reasoning", "hi": "मानसिक क्षमता और तर्क" },
+          "category": "reasoning",
+          "questions": 25,
+          "marks": 25,
+          "duration": null
+        },
+        {
+          "id": "current-affairs-police",
+          "name": { "en": "Current Affairs", "hi": "समसामयिक घटनाएं" },
+          "category": "current-affairs",
+          "questions": 20,
+          "marks": 20,
+          "duration": null
+        }
+      ],
+      "instructions": {
+        "en": [
+          "Total duration: 90 minutes",
+          "Each correct answer carries 1 mark",
+          "No negative marking for wrong answers",
+          "Special emphasis on Haryana-specific topics",
+          "This is a DEMO test for practice purposes only",
+          "Actual Haryana Police exam may have different pattern"
+        ],
+        "hi": [
+          "कुल समय: 90 मिनट",
+          "प्रत्येक सही उत्तर के लिए 1 अंक",
+          "गलत उत्तरों पर कोई नेगेटिव मार्किंग नहीं",
+          "हरियाणा-विशिष्ट विषयों पर विशेष जोर",
+          "यह केवल अभ्यास के लिए डेमो परीक्षा है",
+          "वास्तविक हरियाणा पुलिस परीक्षा का पैटर्न भिन्न हो सकता है"
+        ]
+      },
+      "categoryDistribution": {
+        "haryana-gk": 30,
+        "general-science": 25,
+        "reasoning": 25,
+        "current-affairs": 20
+      },
+      "difficultyDistribution": {
+        "easy": 45,
+        "medium": 45,
+        "hard": 10
+      },
+      "tags": ["hssc", "police", "constable", "haryana", "demo"],
+      "addedOn": "2026-11-24"
+    }
+  ]
+}

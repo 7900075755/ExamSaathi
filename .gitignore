@@ -1,0 +1,16 @@
+node_modules/
+npm-debug.log*
+
+# Android build output (android/ itself is kept — it holds the native project)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/capacitor-cordova-android-plugins/build/
+*.apk
+*.aab
+
+# Signing keys — never commit these
+*.jks
+*.keystore
+keystore.properties

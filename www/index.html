@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#1A237E">
+  <meta name="google" content="notranslate">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="ExamSaathi - SSC, HSSC, Banking परीक्षा की तैयारी">
+  <title>ExamSaathi - परीक्षा साथी</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/icon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <!-- Bundled fonts (offline). Preload the Hindi font used on the first screen. -->
+  <link rel="preload" href="assets/fonts/NotoSansDevanagari/NotoSansDevanagari-Devanagari-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/hindi.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+<body class="app-lang-hi">
+  <div id="app">
+
+    <!-- SPLASH SCREEN -->
+    <div id="splash-screen">
+      <div class="splash-inner">
+        <div class="splash-logo">
+          <img src="assets/icons/logo.svg" alt="ExamSaathi Logo" width="80" height="80" onerror="this.style.display='none'">
+          <div class="splash-logo-fallback" aria-hidden="true">📚</div>
+        </div>
+        <h1 class="splash-title">ExamSaathi</h1>
+        <p class="splash-tagline" data-i18n="tagline">परीक्षा की तैयारी, आपके साथ</p>
+        <div class="splash-loader">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE CONTAINER -->
+    <div id="page-container" role="main" aria-live="polite"></div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav id="bottom-nav" class="hidden" role="navigation" aria-label="मुख्य नेविगेशन">
+      <a href="#home" class="nav-item" data-route="home" aria-label="होम">
+        <span class="nav-icon" aria-hidden="true">🏠</span>
+        <span class="nav-label" data-i18n="nav.home">होम</span>
+      </a>
+      <a href="#categories" class="nav-item" data-route="categories" aria-label="विषय">
+        <span class="nav-icon" aria-hidden="true">📖</span>
+        <span class="nav-label" data-i18n="nav.categories">विषय</span>
+      </a>
+      <a href="#mock-test-list" class="nav-item" data-route="mock-test-list" aria-label="टेस्ट">
+        <span class="nav-icon" aria-hidden="true">📝</span>
+        <span class="nav-label" data-i18n="nav.tests">टेस्ट</span>
+      </a>
+      <a href="#bookmarks" class="nav-item" data-route="bookmarks" aria-label="सेव किए">
+        <span class="nav-icon" aria-hidden="true">🔖</span>
+        <span class="nav-label" data-i18n="nav.bookmarks">सेव</span>
+      </a>
+      <a href="#profile" class="nav-item" data-route="profile" aria-label="प्रोफाइल">
+        <span class="nav-icon" aria-hidden="true">👤</span>
+        <span class="nav-label" data-i18n="nav.profile">प्रोफाइल</span>
+      </a>
+    </nav>
+
+  </div><!-- /#app -->
+
+  <!-- OFFLINE INDICATOR -->
+  <div id="offline-bar" class="hidden" role="alert" aria-live="assertive">
+    <span data-i18n="offline">📵 ऑफलाइन — इंटरनेट कनेक्शन नहीं</span>
+  </div>
+
+  <!-- MODAL CONTAINER -->
+  <div id="modal-container" role="dialog" aria-modal="true"></div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       PAGE TEMPLATES
+  ═══════════════════════════════════════════════ -->
+
+  <!-- ── ONBOARDING ── -->
+  <template id="tpl-onboarding">
+    <div class="page page-onboarding" id="page-onboarding">
+      <div class="onboarding-hero">
+        <div class="onboarding-logo" aria-hidden="true">📚</div>
+        <h1 class="onboarding-title">ExamSaathi</h1>
+        <p class="onboarding-subtitle" data-i18n="onboarding.subtitle">परीक्षा की तैयारी, आपके साथ</p>
+        <p class="onboarding-sub-en">Your Smart Exam Preparation Partner</p>
+        <div class="onboarding-badges">
+          <span class="chip">SSC</span>
+          <span class="chip">HSSC</span>
+          <span class="chip">Banking</span>
+        </div>
+      </div>
+
+      <div class="onboarding-form card card-padded">
+        <h2 class="form-heading" data-i18n="onboarding.welcome">स्वागत है!</h2>
+        <p class="form-sub" data-i18n="onboarding.enter_name">अपना नाम दर्ज करें</p>
+
+        <div class="form-group">
+          <label for="ob-name" class="form-label" data-i18n="onboarding.name_label">आपका नाम</label>
+          <input
+            type="text"
+            id="ob-name"
+            class="form-input"
+            placeholder="जैसे: Rahul Kumar"
+            maxlength="40"
+            autocomplete="name"
+            aria-required="true"
+            aria-describedby="ob-name-error"
+          >
+          <span id="ob-name-error" class="form-error hidden" role="alert" data-i18n="onboarding.name_error">कृपया अपना नाम दर्ज करें (कम से कम 2 अक्षर)</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="onboarding.language">भाषा चुनें / Select Language</label>
+          <div class="lang-toggle" role="group" aria-label="Language selection">
+            <button class="lang-btn active" data-lang="hi" aria-pressed="true" aria-label="हिंदी">हिंदी</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">English</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" data-i18n="onboarding.exam_goal">परीक्षा लक्ष्य</label>
+          <select id="ob-exam" class="form-input" aria-label="Exam goal">
+            <option value="ssc" data-i18n="exam.ssc">SSC CGL / CHSL</option>
+            <option value="hssc" data-i18n="exam.hssc">HSSC (Haryana)</option>
+            <option value="banking" data-i18n="exam.banking">Banking (IBPS / SBI)</option>
+            <option value="all" data-i18n="exam.all">सभी परीक्षाएं</option>
+          </select>
+        </div>
+
+        <button id="ob-start-btn" class="btn btn-primary btn-block" aria-label="शुरू करें">
+          <span data-i18n="onboarding.start_btn">शुरू करें →</span>
+        </button>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-onboarding');
+      if (!page) return;
+
+      var nameInput = page.querySelector('#ob-name');
+      var nameError = page.querySelector('#ob-name-error');
+      var startBtn  = page.querySelector('#ob-start-btn');
+      var langBtns  = page.querySelectorAll('.lang-btn');
+      var examSel   = page.querySelector('#ob-exam');
+      var selectedLang = 'hi';
+
+      langBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          langBtns.forEach(function(b) { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed','true');
+          selectedLang = btn.dataset.lang;
+          if (window.I18n) I18n.setLang(selectedLang);
+          document.body.classList.toggle('app-lang-en', selectedLang === 'en');
+          document.body.classList.toggle('app-lang-hi', selectedLang === 'hi');
+        });
+      });
+
+      nameInput.addEventListener('input', function() {
+        nameError.classList.add('hidden');
+      });
+
+      startBtn.addEventListener('click', function() {
+        var name = nameInput.value.trim();
+        if (name.length < 2) {
+          nameError.classList.remove('hidden');
+          nameInput.focus();
+          return;
+        }
+        var examGoal = examSel ? examSel.value : 'all';
+        if (window.Auth) {
+          // Auth.register(name, lang) — examGoal is stored via updateProfile
+          var reg = Auth.register(name, selectedLang);
+          if (!reg || !reg.ok) {
+            nameError.classList.remove('hidden');
+            nameInput.focus();
+            return;
+          }
+          Auth.updateProfile({ examGoal: examGoal });
+        } else {
+          var userData = { name: name, lang: selectedLang, examGoal: examGoal, createdAt: Date.now() };
+          try { localStorage.setItem('es_user', JSON.stringify(userData)); } catch(e) {}
+        }
+        if (window.App) App.navigate('#home');
+        else window.location.hash = '#home';
+      });
+    })();
+    </script>
+  </template>
+
+  <!-- ── HOME ── -->
+  <template id="tpl-home">
+    <div class="page page-home" id="page-home">
+
+      <!-- TOP BAR -->
+      <header class="page-header home-header">
+        <div class="home-header-left">
+          <span class="app-logo-sm" aria-hidden="true">📚</span>
+          <span class="app-name">ExamSaathi</span>
+        </div>
+        <div class="home-header-right">
+          <button class="icon-btn" id="home-lang-toggle" aria-label="भाषा बदलें">
+            <span class="lang-flag" id="lang-flag-display">हि</span>
+          </button>
+          <button class="icon-btn" id="home-notify-btn" aria-label="सूचनाएं">🔔</button>
+        </div>
+      </header>
+
+      <!-- HERO GREETING -->
+      <section class="hero home-hero" aria-label="ग्रीटिंग">
+        <div class="hero-content">
+          <p class="hero-greeting" id="home-greeting" data-i18n="home.greeting">नमस्ते!</p>
+          <h2 class="hero-name" id="home-user-name">...</h2>
+          <div class="hero-streak">
+            <span class="streak-icon" aria-hidden="true">🔥</span>
+            <span id="home-streak-count">0</span>
+            <span data-i18n="home.days_streak"> दिन की स्ट्रीक</span>
+          </div>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">🎓</div>
+      </section>
+
+      <!-- DAILY QUIZ CARD -->
+      <section class="home-section" aria-labelledby="daily-quiz-heading">
+        <div class="card card-padded daily-quiz-card" id="daily-quiz-card">
+          <div class="daily-quiz-left">
+            <span class="daily-quiz-icon" aria-hidden="true">⚡</span>
+            <div>
+              <h3 id="daily-quiz-heading" data-i18n="home.daily_quiz">आज का क्विज़</h3>
+              <p class="daily-quiz-sub" id="daily-quiz-sub" data-i18n="home.daily_quiz_sub">10 सवाल • 10 मिनट</p>
+            </div>
+          </div>
+          <button class="btn btn-accent" id="daily-quiz-btn" aria-label="आज का क्विज़ शुरू करें">
+            <span id="daily-quiz-btn-label" data-i18n="home.start">शुरू करें</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- QUICK STATS -->
+      <section class="home-section" aria-labelledby="stats-heading">
+        <h3 class="section-header" id="stats-heading" data-i18n="home.your_stats">आपके आंकड़े</h3>
+        <div class="grid-3">
+          <div class="stat-box" aria-label="स्ट्रीक">
+            <div class="stat-value" id="stat-streak">0</div>
+            <div class="stat-label" data-i18n="stat.streak">🔥 स्ट्रीक</div>
+          </div>
+          <div class="stat-box" aria-label="कुल सवाल">
+            <div class="stat-value" id="stat-total-q">0</div>
+            <div class="stat-label" data-i18n="stat.total_q">📊 सवाल</div>
+          </div>
+          <div class="stat-box" aria-label="सटीकता">
+            <div class="stat-value" id="stat-accuracy">0%</div>
+            <div class="stat-label" data-i18n="stat.accuracy">🎯 सटीकता</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUBJECTS -->
+      <section class="home-section" aria-labelledby="subjects-heading">
+        <div class="section-header-row">
+          <h3 class="section-header" id="subjects-heading" data-i18n="home.subjects">विषय</h3>
+          <a href="#categories" class="see-all" data-i18n="home.see_all">सभी देखें →</a>
+        </div>
+        <div class="grid-3" id="home-subjects-grid">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- MOCK TESTS -->
+      <section class="home-section" aria-labelledby="mock-heading">
+        <div class="section-header-row">
+          <h3 class="section-header" id="mock-heading" data-i18n="home.mock_tests">मॉक टेस्ट</h3>
+          <a href="#mock-test-list" class="see-all" data-i18n="home.see_all">सभी देखें →</a>
+        </div>
+        <div class="mock-cards-row" id="home-mock-cards">
+          <div class="card card-padded mock-card" data-testid="ssc" role="button" tabindex="0" aria-label="SSC मॉक टेस्ट">
+            <div class="mock-card-icon" aria-hidden="true">📋</div>
+            <div class="mock-card-info">
+              <div class="mock-card-title">SSC Demo</div>
+              <div class="mock-card-meta">25 सवाल • 30 मिनट</div>
+            </div>
+            <span class="badge badge-accent">FREE</span>
+          </div>
+          <div class="card card-padded mock-card" data-testid="hssc" role="button" tabindex="0" aria-label="HSSC मॉक टेस्ट">
+            <div class="mock-card-icon" aria-hidden="true">📋</div>
+            <div class="mock-card-info">
+              <div class="mock-card-title">HSSC Demo</div>
+              <div class="mock-card-meta">25 सवाल • 30 मिनट</div>
+            </div>
+            <span class="badge badge-accent">FREE</span>
+          </div>
+          <div class="card card-padded mock-card" data-testid="banking" role="button" tabindex="0" aria-label="Banking मॉक टेस्ट">
+            <div class="mock-card-icon" aria-hidden="true">📋</div>
+            <div class="mock-card-info">
+              <div class="mock-card-title">Banking Demo</div>
+              <div class="mock-card-meta">25 सवाल • 30 मिनट</div>
+            </div>
+            <span class="badge badge-accent">FREE</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-home');
+      if (!page) return;
+
+      var CATEGORIES = [
+        { id:'math',    emoji:'🔢', hi:'गणित',          en:'Mathematics' },
+        { id:'reasoning', emoji:'🧠', hi:'तर्कशक्ति',   en:'Reasoning' },
+        { id:'english', emoji:'📝', hi:'अंग्रेज़ी',      en:'English' },
+        { id:'gk',      emoji:'🌍', hi:'सामान्य ज्ञान', en:'General Knowledge' },
+        { id:'science', emoji:'🔬', hi:'विज्ञान',       en:'Science' },
+        { id:'haryana', emoji:'🌾', hi:'हरियाणा GK',    en:'Haryana GK' },
+        { id:'computer',emoji:'💻', hi:'कंप्यूटर',      en:'Computer' },
+        { id:'hindi',   emoji:'📖', hi:'हिंदी',          en:'Hindi' },
+        { id:'current', emoji:'📰', hi:'करंट अफेयर्स',  en:'Current Affairs' }
+      ];
+
+      // Greeting
+      var hour = new Date().getHours();
+      var greetEl = page.querySelector('#home-greeting');
+      var langEl  = document.body.classList.contains('app-lang-en') ? 'en' : 'hi';
+      var greetings = {
+        hi: hour < 12 ? 'सुप्रभात 🌅' : hour < 17 ? 'नमस्ते 👋' : 'शुभ संध्या 🌆',
+        en: hour < 12 ? 'Good Morning 🌅' : hour < 17 ? 'Hello 👋' : 'Good Evening 🌆'
+      };
+      if (greetEl) greetEl.textContent = greetings[langEl] || greetings.hi;
+
+      // User data
+      var user = {};
+      try { user = JSON.parse(localStorage.getItem('es_user') || '{}'); } catch(e) {}
+      var nameEl = page.querySelector('#home-user-name');
+      if (nameEl) nameEl.textContent = user.name || 'मित्र';
+
+      // Stats (shared modules: lifetime totals on the user profile + Streak)
+      var streak  = window.Streak ? Streak.getCurrent() : 0;
+      var totalQ  = user.totalQuestions || 0;
+      var correct = user.totalCorrect   || 0;
+      var acc     = totalQ > 0 ? Math.round((correct / totalQ) * 100) : 0;
+
+      var setT = function(id, val) { var el = page.querySelector('#' + id); if (el) el.textContent = val; };
+      setT('home-streak-count', streak);
+      setT('stat-streak',   streak);
+      setT('stat-total-q',  totalQ);
+      setT('stat-accuracy', acc + '%');
+
+      // Daily quiz state
+      var todayDone = false;
+      try {
+        var dqDate = localStorage.getItem('es_daily_quiz_date');
+        todayDone  = (dqDate === new Date().toDateString());
+      } catch(e) {}
+      var dqBtn   = page.querySelector('#daily-quiz-btn');
+      var dqLabel = page.querySelector('#daily-quiz-btn-label');
+      var dqSub   = page.querySelector('#daily-quiz-sub');
+      if (todayDone) {
+        if (dqLabel) dqLabel.textContent = '✅ पूरा हुआ';
+        if (dqSub)   dqSub.textContent   = 'कल फिर आएं';
+        if (dqBtn)   dqBtn.classList.add('btn-disabled');
+      }
+      if (dqBtn) {
+        dqBtn.addEventListener('click', function() {
+          if (todayDone) return;
+          if (window.App) App.navigate('#daily-quiz');
+          else window.location.hash = '#daily-quiz';
+        });
+      }
+
+      // Subject tiles
+      var grid = page.querySelector('#home-subjects-grid');
+      if (grid) {
+        CATEGORIES.forEach(function(cat) {
+          var tile = document.createElement('a');
+          tile.href = '#practice?cat=' + cat.id;
+          tile.className = 'subject-tile card';
+          tile.setAttribute('aria-label', cat.hi);
+          tile.innerHTML =
+            '<span class="subject-emoji" aria-hidden="true">' + cat.emoji + '</span>' +
+            '<span class="subject-name hi-text">' + cat.hi + '</span>' +
+            '<span class="subject-name en-text">' + cat.en + '</span>';
+          grid.appendChild(tile);
+        });
+      }
+
+      // Mock test cards — filled from data/mock-tests.json (first free tests)
+      var mockCards = page.querySelectorAll('.mock-card');
+      var freeTests = (window.QuestionBank ? QuestionBank.getMockTests() : [])
+        .filter(function(t) { return t.tier !== 'premium'; });
+      mockCards.forEach(function(card, i) {
+        var t = freeTests[i];
+        if (!t) return;   // keep the built-in card if data is missing
+        card.dataset.testid = t.id;
+        card.setAttribute('aria-label', (t.name.hi || t.name.en) + ' मॉक टेस्ट');
+        var titleEl = card.querySelector('.mock-card-title');
+        var metaEl  = card.querySelector('.mock-card-meta');
+        if (titleEl) titleEl.textContent = t.examCode || t.name.en;
+        if (metaEl)  metaEl.textContent  = t.totalQuestions + ' सवाल • ' + Math.round(t.duration / 60) + ' मिनट';
+      });
+      mockCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          var tid = card.dataset.testid;
+          if (window.App) App.navigate('#mock-test-config?id=' + tid);
+          else window.location.hash = '#mock-test-config?id=' + tid;
+        });
+        card.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') card.click();
+        });
+      });
+
+      // Lang toggle
+      var ltBtn = page.querySelector('#home-lang-toggle');
+      var lfDisp = page.querySelector('#lang-flag-display');
+      if (ltBtn) {
+        ltBtn.addEventListener('click', function() {
+          var isHi = document.body.classList.contains('app-lang-hi');
+          var newLang = isHi ? 'en' : 'hi';
+          document.body.classList.toggle('app-lang-hi', newLang === 'hi');
+          document.body.classList.toggle('app-lang-en', newLang === 'en');
+          if (lfDisp) lfDisp.textContent = newLang === 'hi' ? 'हि' : 'En';
+          if (window.I18n) I18n.setLang(newLang);
+          try { var u = JSON.parse(localStorage.getItem('es_user')||'{}'); u.lang = newLang; localStorage.setItem('es_user', JSON.stringify(u)); } catch(e) {}
+        });
+      }
+    })();
+    </script>
+  </template>
+
+  <!-- ── CATEGORIES ── -->
+  <template id="tpl-categories">
+    <div class="page page-categories" id="page-categories">
+      <header class="page-header">
+        <h1 class="page-title" data-i18n="categories.title">विषय चुनें</h1>
+      </header>
+
+      <div class="categories-intro card card-padded">
+        <p data-i18n="categories.intro">किस विषय में अभ्यास करना चाहते हैं?</p>
+      </div>
+
+      <div class="categories-grid grid-2" id="categories-grid" role="list">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-categories');
+      if (!page) return;
+
+      var CATEGORIES = [
+        { id:'math',      emoji:'🔢', hi:'गणित',          en:'Mathematics',      count:150, color:'#E3F2FD' },
+        { id:'reasoning', emoji:'🧠', hi:'तर्कशक्ति',      en:'Reasoning',        count:120, color:'#F3E5F5' },
+        { id:'english',   emoji:'📝', hi:'अंग्रेज़ी',       en:'English',          count:100, color:'#E8F5E9' },
+        { id:'gk',        emoji:'🌍', hi:'सामान्य ज्ञान',  en:'General Knowledge',count:200, color:'#FFF3E0' },
+        { id:'science',   emoji:'🔬', hi:'विज्ञान',        en:'Science',          count:80,  color:'#E0F7FA' },
+        { id:'haryana',   emoji:'🌾', hi:'हरियाणा GK',     en:'Haryana GK',       count:90,  color:'#FCE4EC' },
+        { id:'computer',  emoji:'💻', hi:'कंप्यूटर',       en:'Computer',         count:70,  color:'#E8EAF6' },
+        { id:'hindi',     emoji:'📖', hi:'हिंदी',           en:'Hindi',            count:110, color:'#F9FBE7' },
+        { id:'current',   emoji:'📰', hi:'करंट अफेयर्स',   en:'Current Affairs',  count:60,  color:'#FFF8E1' }
+      ];
+
+      var grid = page.querySelector('#categories-grid');
+      if (!grid) return;
+
+      // Use real question counts from the loaded question bank
+      var realCounts = window.QuestionBank ? QuestionBank.countByCategory() : {};
+      CATEGORIES.forEach(function(cat) {
+        if (window.QuestionBank) cat.count = realCounts[cat.id] || 0;
+      });
+
+      CATEGORIES.forEach(function(cat) {
+        var card = document.createElement('a');
+        card.href = '#practice?cat=' + cat.id;
+        card.className = 'category-card card card-padded';
+        card.setAttribute('role', 'listitem');
+        card.setAttribute('aria-label', cat.hi + ' - ' + cat.count + ' सवाल');
+        card.style.setProperty('--cat-color', cat.color);
+        card.innerHTML =
+          '<div class="cat-card-top">' +
+            '<span class="cat-emoji" aria-hidden="true">' + cat.emoji + '</span>' +
+            '<span class="badge badge-outline cat-count">' + cat.count + ' Q</span>' +
+          '</div>' +
+          '<div class="cat-name hi-text">' + cat.hi + '</div>' +
+          '<div class="cat-name en-text">' + cat.en + '</div>' +
+          '<div class="cat-arrow" aria-hidden="true">→</div>';
+        grid.appendChild(card);
+      });
+    })();
+    </script>
+  </template>
+
+  <!-- ── PRACTICE ── -->
+  <template id="tpl-practice">
+    <div class="page page-practice" id="page-practice">
+      <header class="page-header">
+        <button class="back-btn icon-btn" id="practice-back" aria-label="वापस जाएं">←</button>
+        <h1 class="page-title" id="practice-title">अभ्यास</h1>
+        <div class="header-spacer"></div>
+      </header>
+
+      <section class="practice-filters card card-padded">
+        <div class="filter-group">
+          <label class="filter-label" data-i18n="practice.topic_filter">विषय / Topic</label>
+          <div class="chip-row" id="topic-chips" role="group" aria-label="Topic filter">
+            <button class="chip chip-active" data-topic="all" aria-pressed="true">सभी</button>
+          </div>
+        </div>
+        <div class="filter-group">
+          <label class="filter-label" data-i18n="practice.difficulty">कठिनाई / Difficulty</label>
+          <div class="chip-row" role="group" aria-label="Difficulty filter">
+            <button class="chip chip-active" data-diff="all" aria-pressed="true">सभी</button>
+            <button class="chip" data-diff="easy" aria-pressed="false">Easy</button>
+            <button class="chip" data-diff="medium" aria-pressed="false">Medium</button>
+            <button class="chip" data-diff="hard" aria-pressed="false">Hard</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="practice-count-row card card-padded">
+        <span data-i18n="practice.available">उपलब्ध सवाल:</span>
+        <strong id="practice-q-count">0</strong>
+        <span data-i18n="practice.questions">सवाल</span>
+      </div>
+
+      <div class="practice-action-row">
+        <button class="btn btn-primary btn-block" id="practice-start-btn" aria-label="अभ्यास शुरू करें">
+          <span data-i18n="practice.start_btn">🚀 अभ्यास शुरू करें</span>
+        </button>
+      </div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-practice');
+      if (!page) return;
+
+      var params = {};
+      var hash = window.location.hash || '';
+      var qStr = hash.includes('?') ? hash.split('?')[1] : '';
+      qStr.split('&').forEach(function(p) {
+        var kv = p.split('='); if (kv[0]) params[kv[0]] = decodeURIComponent(kv[1] || '');
+      });
+      var catId = params.cat || 'all';
+
+      var CAT_NAMES = {
+        math:'गणित', reasoning:'तर्कशक्ति', english:'अंग्रेज़ी', gk:'सामान्य ज्ञान',
+        science:'विज्ञान', haryana:'हरियाणा GK', computer:'कंप्यूटर', hindi:'हिंदी', current:'करंट अफेयर्स'
+      };
+
+      var titleEl = page.querySelector('#practice-title');
+      if (titleEl) titleEl.textContent = CAT_NAMES[catId] || 'अभ्यास';
+
+      var backBtn = page.querySelector('#practice-back');
+      if (backBtn) backBtn.addEventListener('click', function() {
+        if (window.App) App.navigate('#categories');
+        else window.location.hash = '#categories';
+      });
+
+      // Load questions
+      var allQuestions = [];
+      try {
+        var stored = localStorage.getItem('es_questions');
+        allQuestions = stored ? JSON.parse(stored) : [];
+      } catch(e) { allQuestions = []; }
+
+      // Filter by category
+      var catQs = catId === 'all' ? allQuestions : allQuestions.filter(function(q) { return q.category === catId; });
+
+      // Extract unique topics
+      var topics = ['all'];
+      catQs.forEach(function(q) { if (q.topic && topics.indexOf(q.topic) === -1) topics.push(q.topic); });
+
+      var topicChips = page.querySelector('#topic-chips');
+      topics.forEach(function(t) {
+        if (t === 'all') return;
+        var chip = document.createElement('button');
+        chip.className = 'chip';
+        chip.dataset.topic = t;
+        chip.setAttribute('aria-pressed', 'false');
+        chip.textContent = t;
+        topicChips.appendChild(chip);
+      });
+
+      var selectedTopic = 'all';
+      var selectedDiff  = 'all';
+
+      function countFiltered() {
+        return catQs.filter(function(q) {
+          var topicOk = selectedTopic === 'all' || q.topic === selectedTopic;
+          var diffOk  = selectedDiff  === 'all' || q.difficulty === selectedDiff;
+          return topicOk && diffOk;
+        }).length;
+      }
+
+      function updateCount() {
+        var cnt = countFiltered();
+        var el = page.querySelector('#practice-q-count');
+        if (el) el.textContent = cnt;
+        var startBtn = page.querySelector('#practice-start-btn');
+        if (startBtn) startBtn.disabled = (cnt === 0);
+      }
+
+      updateCount();
+
+      // Chip clicks
+      page.querySelectorAll('[data-topic]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          page.querySelectorAll('[data-topic]').forEach(function(b) { b.classList.remove('chip-active'); b.setAttribute('aria-pressed','false'); });
+          btn.classList.add('chip-active'); btn.setAttribute('aria-pressed','true');
+          selectedTopic = btn.dataset.topic;
+          updateCount();
+        });
+      });
+      page.querySelectorAll('[data-diff]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          page.querySelectorAll('[data-diff]').forEach(function(b) { b.classList.remove('chip-active'); b.setAttribute('aria-pressed','false'); });
+          btn.classList.add('chip-active'); btn.setAttribute('aria-pressed','true');
+          selectedDiff = btn.dataset.diff;
+          updateCount();
+        });
+      });
+
+      // Start button
+      var startBtn = page.querySelector('#practice-start-btn');
+      if (startBtn) {
+        startBtn.addEventListener('click', function() {
+          var filtered = catQs.filter(function(q) {
+            var topicOk = selectedTopic === 'all' || q.topic === selectedTopic;
+            var diffOk  = selectedDiff  === 'all' || q.difficulty === selectedDiff;
+            return topicOk && diffOk;
+          });
+          if (!filtered.length) return;
+          // Fisher–Yates shuffle so each practice round gets a different set/order
+          var shuffled = filtered.slice();
+          for (var i = shuffled.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = shuffled[i]; shuffled[i] = shuffled[j]; shuffled[j] = tmp;
+          }
+          var session = {
+            questions: shuffled.slice(0, 30),
+            mode: 'practice',
+            category: catId,
+            startTime: Date.now()
+          };
+          try { localStorage.setItem('es_current_session', JSON.stringify(session)); } catch(e) {}
+          if (window.App) App.navigate('#quiz-session');
+          else window.location.hash = '#quiz-session';
+        });
+      }
+    })();
+    </script>
+  </template>
+
+  <!-- ── DAILY QUIZ ── -->
+  <template id="tpl-daily-quiz">
+    <div class="page page-daily-quiz" id="page-daily-quiz">
+      <div class="loading-center">
+        <div class="spinner"></div>
+        <p data-i18n="daily_quiz.loading">आज का क्विज़ तैयार हो रहा है...</p>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      var allQuestions = [];
+      try { allQuestions = JSON.parse(localStorage.getItem('es_questions') || '[]'); } catch(e) {}
+
+      // Shuffle and pick 10
+      var shuffled = allQuestions.slice().sort(function() { return Math.random() - 0.5; });
+      var picked   = shuffled.slice(0, Math.min(10, shuffled.length));
+
+      if (!picked.length) {
+        // Build demo questions if no data
+        picked = [
+          { id:'dq1', category:'math',      text:'5 + 7 × 2 = ?',                                                     textEn:'5 + 7 × 2 = ?',                                                     options:['19','24','19','14'], correctIndex:0, difficulty:'easy',   explanation:'BODMAS: 7×2=14, 14+5=19' },
+          { id:'dq2', category:'reasoning', text:'ABCD में से अगला अक्षर क्या है?',                                     textEn:'What comes after ABCD?',                                            options:['E','F','D','G'],     correctIndex:0, difficulty:'easy',   explanation:'E comes after D in alphabet' },
+          { id:'dq3', category:'gk',        text:'भारत की राजधानी कहाँ है?',                                           textEn:'What is the capital of India?',                                      options:['मुंबई','दिल्ली','कोलकाता','चेन्नई'], correctIndex:1, difficulty:'easy', explanation:'नई दिल्ली भारत की राजधानी है।' },
+          { id:'dq4', category:'english',   text:'Choose the correct spelling:',                                        textEn:'Choose the correct spelling:',                                       options:['Recieve','Receive','Receve','Reciive'], correctIndex:1, difficulty:'medium', explanation:'"Receive" follows i before e except after c' },
+          { id:'dq5', category:'science',   text:'पानी का रासायनिक सूत्र क्या है?',                                    textEn:'What is the chemical formula of water?',                            options:['CO2','H2O','O2','NaCl'], correctIndex:1, difficulty:'easy', explanation:'पानी = H2O (दो हाइड्रोजन, एक ऑक्सीजन)' },
+          { id:'dq6', category:'gk',        text:'भारतीय स्वतंत्रता किस वर्ष मिली?',                                   textEn:'In which year did India get independence?',                          options:['1945','1947','1950','1946'], correctIndex:1, difficulty:'easy', explanation:'15 अगस्त 1947 को भारत आज़ाद हुआ' },
+          { id:'dq7', category:'math',      text:'एक त्रिभुज के कोणों का योग कितना होता है?',                          textEn:'Sum of angles in a triangle is?',                                    options:['90°','180°','270°','360°'], correctIndex:1, difficulty:'easy', explanation:'त्रिभुज के तीनों कोणों का योग 180° होता है' },
+          { id:'dq8', category:'computer',  text:'CPU का पूरा नाम क्या है?',                                           textEn:'Full form of CPU?',                                                  options:['Central Processing Unit','Computer Personal Unit','Central Program Unit','Control Processing Unit'], correctIndex:0, difficulty:'easy', explanation:'CPU = Central Processing Unit' },
+          { id:'dq9', category:'current',   text:'विश्व पर्यावरण दिवस कब मनाया जाता है?',                              textEn:'World Environment Day is celebrated on?',                           options:['5 जून','22 अप्रैल','16 सितंबर','21 मार्च'], correctIndex:0, difficulty:'easy', explanation:'5 जून को विश्व पर्यावरण दिवस मनाया जाता है' },
+          { id:'dq10',category:'hindi',     text:'"परिश्रम" का विलोम शब्द क्या है?',                                   textEn:'Antonym of "परिश्रम" (hard work)?',                                  options:['आलस्य','मेहनत','उद्यम','प्रयास'], correctIndex:0, difficulty:'medium', explanation:'परिश्रम का विलोम = आलस्य' }
+        ];
+      }
+
+      var session = { questions: picked, mode: 'daily', category: 'all', startTime: Date.now(), timeLimit: 600 };
+      try { localStorage.setItem('es_current_session', JSON.stringify(session)); } catch(e) {}
+      try { localStorage.setItem('es_daily_quiz_date', new Date().toDateString()); } catch(e) {}
+
+      setTimeout(function() {
+        if (window.App) App.navigate('#quiz-session');
+        else window.location.hash = '#quiz-session';
+      }, 500);
+    })();
+    </script>
+  </template>
+
+  <!-- ── MOCK TEST LIST ── -->
+  <template id="tpl-mock-test-list">
+    <div class="page page-mock-list" id="page-mock-list">
+      <header class="page-header">
+        <h1 class="page-title" data-i18n="mock_list.title">मॉक टेस्ट</h1>
+      </header>
+
+      <div class="demo-notice card card-padded" role="note" aria-label="Demo notice">
+        <span aria-hidden="true">⚠️</span>
+        <span data-i18n="mock.demo_notice">ये डेमो टेस्ट हैं। आधिकारिक परीक्षा पैटर्न नहीं।</span>
+      </div>
+
+      <section class="mock-list-section" aria-label="SSC Tests">
+        <h2 class="section-header">SSC परीक्षाएं</h2>
+        <div class="card card-padded mock-list-card" role="button" tabindex="0" data-testid="ssc" aria-label="SSC CGL Demo Test">
+          <div class="mock-list-left">
+            <div class="mock-list-icon" aria-hidden="true">📋</div>
+            <div class="mock-list-info">
+              <div class="mock-list-title">SSC CGL Demo</div>
+              <div class="mock-list-meta">25 सवाल • 30 मिनट • −0.25 अंक</div>
+            </div>
+          </div>
+          <div class="mock-list-right">
+            <span class="badge badge-green">FREE</span>
+            <span class="mock-arrow" aria-hidden="true">›</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="mock-list-section" aria-label="HSSC Tests">
+        <h2 class="section-header">HSSC परीक्षाएं</h2>
+        <div class="card card-padded mock-list-card" role="button" tabindex="0" data-testid="hssc" aria-label="HSSC Group D Demo Test">
+          <div class="mock-list-left">
+            <div class="mock-list-icon" aria-hidden="true">📋</div>
+            <div class="mock-list-info">
+              <div class="mock-list-title">HSSC Group D Demo</div>
+              <div class="mock-list-meta">25 सवाल • 30 मिनट • कोई नेगेटिव नहीं</div>
+            </div>
+          </div>
+          <div class="mock-list-right">
+            <span class="badge badge-green">FREE</span>
+            <span class="mock-arrow" aria-hidden="true">›</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="mock-list-section" aria-label="Banking Tests">
+        <h2 class="section-header">Banking परीक्षाएं</h2>
+        <div class="card card-padded mock-list-card" role="button" tabindex="0" data-testid="banking" aria-label="IBPS PO Demo Test">
+          <div class="mock-list-left">
+            <div class="mock-list-icon" aria-hidden="true">📋</div>
+            <div class="mock-list-info">
+              <div class="mock-list-title">IBPS PO Demo</div>
+              <div class="mock-list-meta">25 सवाल • 30 मिनट • −0.25 अंक</div>
+            </div>
+          </div>
+          <div class="mock-list-right">
+            <span class="badge badge-green">FREE</span>
+            <span class="mock-arrow" aria-hidden="true">›</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="coming-soon-note card card-padded">
+        <span aria-hidden="true">🔒</span>
+        <span data-i18n="mock.coming_soon">और टेस्ट जल्द आ रहे हैं...</span>
+      </div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-mock-list');
+      if (!page) return;
+
+      // Render all tests from data/mock-tests.json, grouped by exam type.
+      // The static cards in the template remain only if no data is available.
+      var tests = window.QuestionBank ? QuestionBank.getMockTests() : [];
+      if (tests.length) {
+        var GROUPS = { ssc: 'SSC परीक्षाएं', hssc: 'HSSC / हरियाणा परीक्षाएं', banking: 'Banking परीक्षाएं' };
+        var anchor = page.querySelector('.coming-soon-note');
+        page.querySelectorAll('.mock-list-section').forEach(function(s) { s.remove(); });
+        var order = [];
+        tests.forEach(function(t) { if (order.indexOf(t.examType) === -1) order.push(t.examType); });
+        order.forEach(function(type) {
+          var section = document.createElement('section');
+          section.className = 'mock-list-section';
+          var h = document.createElement('h2');
+          h.className = 'section-header';
+          h.textContent = GROUPS[type] || type.toUpperCase();
+          section.appendChild(h);
+          tests.filter(function(t) { return t.examType === type; }).forEach(function(t) {
+            var premium = t.tier === 'premium';
+            var neg = t.negativeMarking ? '−' + t.negativeMarking + ' अंक' : 'कोई नेगेटिव नहीं';
+            var card = document.createElement('div');
+            card.className = 'card card-padded mock-list-card' + (premium ? ' mock-locked' : '');
+            card.setAttribute('role', 'button');
+            card.setAttribute('tabindex', '0');
+            card.dataset.testid = t.id;
+            if (premium) card.dataset.premium = '1';
+            card.setAttribute('aria-label', t.name.en + (premium ? ' (Premium)' : ''));
+            card.innerHTML =
+              '<div class="mock-list-left">' +
+                '<div class="mock-list-icon" aria-hidden="true">' + (premium ? '🔒' : '📋') + '</div>' +
+                '<div class="mock-list-info">' +
+                  '<div class="mock-list-title"></div>' +
+                  '<div class="mock-list-meta"></div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="mock-list-right">' +
+                '<span class="badge ' + (premium ? 'badge-accent' : 'badge-green') + '">' + (premium ? 'PREMIUM' : 'FREE') + '</span>' +
+                '<span class="mock-arrow" aria-hidden="true">›</span>' +
+              '</div>';
+            card.querySelector('.mock-list-title').textContent = t.name.hi || t.name.en;
+            card.querySelector('.mock-list-meta').textContent =
+              t.totalQuestions + ' सवाल • ' + Math.round(t.duration / 60) + ' मिनट • ' + neg;
+            section.appendChild(card);
+          });
+          page.insertBefore(section, anchor);
+        });
+      }
+
+      var cards = page.querySelectorAll('.mock-list-card');
+      cards.forEach(function(card) {
+        function go() {
+          var tid = card.dataset.testid;
+          if (card.dataset.premium && window.Premium && !Premium.isPremium()) {
+            Premium.showUpgradePrompt();
+            return;
+          }
+          if (window.App) App.navigate('#mock-test-config?id=' + tid);
+          else window.location.hash = '#mock-test-config?id=' + tid;
+        }
+        card.addEventListener('click', go);
+        card.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') go(); });
+      });
+    })();
+    </script>
+  </template>
+
+  <!-- ── MOCK TEST CONFIG ── -->
+  <template id="tpl-mock-test-config">
+    <div class="page page-mock-config" id="page-mock-config">
+      <header class="page-header">
+        <button class="back-btn icon-btn" id="mock-config-back" aria-label="वापस जाएं">←</button>
+        <h1 class="page-title" id="mock-config-title">टेस्ट विवरण</h1>
+        <div class="header-spacer"></div>
+      </header>
+
+      <div class="demo-notice card card-padded" role="note">
+        <span aria-hidden="true">⚠️</span>
+        <span data-i18n="mock.demo_warning">ये डेमो टेस्ट है। आधिकारिक परीक्षा पैटर्न नहीं।</span>
+      </div>
+
+      <div class="mock-config-details card card-padded" id="mock-config-details">
+        <div class="config-row">
+          <span class="config-label" data-i18n="mock_config.exam">परीक्षा</span>
+          <span class="config-value" id="cfg-exam-name">—</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label" data-i18n="mock_config.questions">सवाल</span>
+          <span class="config-value" id="cfg-q-count">25</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label" data-i18n="mock_config.time">समय</span>
+          <span class="config-value" id="cfg-time">30 मिनट</span>
+        </div>
+        <div class="config-row">
+          <span class="config-label" data-i18n="mock_config.marks">अंक</span>
+          <span class="config-value" id="cfg-marks">+1 सही / <span id="cfg-neg">−0.25</span> गलत</span>
+        </div>
+      </div>
+
+      <div class="mock-instructions card card-padded">
+        <h2 class="instructions-heading" data-i18n="mock_config.instructions">निर्देश</h2>
+        <ul class="instructions-list" id="instructions-list">
+          <li data-i18n="instr.1">टेस्ट शुरू करने के बाद टाइमर नहीं रुकेगा।</li>
+          <li data-i18n="instr.2">प्रत्येक सही उत्तर के लिए +1 अंक।</li>
+          <li data-i18n="instr.3">नेगेटिव मार्किंग लागू हो सकती है।</li>
+          <li data-i18n="instr.4">सभी सवाल MCQ (4 विकल्प) हैं।</li>
+          <li data-i18n="instr.5">टेस्ट सबमिट करने के बाद रिजल्ट दिखाई देगा।</li>
+        </ul>
+      </div>
+
+      <div class="mock-config-actions">
+        <button class="btn btn-primary btn-block" id="mock-start-btn" aria-label="टेस्ट शुरू करें">
+          <span data-i18n="mock_config.start">🚀 टेस्ट शुरू करें</span>
+        </button>
+      </div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-mock-config');
+      if (!page) return;
+
+      var params = {};
+      var hash = window.location.hash || '';
+      var qStr = hash.includes('?') ? hash.split('?')[1] : '';
+      qStr.split('&').forEach(function(p) {
+        var kv = p.split('='); if (kv[0]) params[kv[0]] = decodeURIComponent(kv[1] || '');
+      });
+      var testId = params.id || 'ssc';
+
+      // Built-in fallback, used only if data/mock-tests.json is unavailable
+      var TESTS = {
+        ssc:     { name:'SSC CGL Demo',      questions:25, time:30, negative:-0.25, marksPerQ:1 },
+        hssc:    { name:'HSSC Group D Demo',  questions:25, time:30, negative:0,     marksPerQ:1 },
+        banking: { name:'IBPS PO Demo',       questions:25, time:30, negative:-0.25, marksPerQ:1 }
+      };
+      var data = window.QuestionBank ? QuestionBank.getMockTest(testId) : null;
+      var test;
+      if (data) {
+        test = {
+          id: data.id,
+          name: data.name.hi || data.name.en,
+          questions: data.totalQuestions,
+          time: Math.round(data.duration / 60),
+          negative: -(data.negativeMarking || 0),
+          marksPerQ: data.marksPerCorrect || 1,
+          instructions: data.instructions,
+          data: data
+        };
+      } else {
+        test = TESTS[testId] || TESTS.ssc;
+        test.id = TESTS[testId] ? testId : 'ssc';
+      }
+
+      // Premium test opened by direct link: show the upgrade prompt and go back
+      if (data && data.tier === 'premium' && window.Premium && !Premium.isPremium()) {
+        Premium.showUpgradePrompt();
+        if (window.App) App.navigate('#mock-test-list', { replace: true });
+        return;
+      }
+
+      var setText = function(id, val) { var el = page.querySelector('#' + id); if (el) el.textContent = val; };
+      var titleEl = page.querySelector('#mock-config-title');
+      if (titleEl) titleEl.textContent = test.name;
+      setText('cfg-exam-name', test.name);
+      setText('cfg-q-count', test.questions + ' सवाल');
+      setText('cfg-time', test.time + ' मिनट');
+      setText('cfg-marks', '+' + test.marksPerQ + ' सही / ' +
+        (test.negative < 0 ? test.negative + ' गलत' : 'कोई नेगेटिव नहीं'));
+
+      // Instructions from the test data (Hindi, falling back to English)
+      var instrList = page.querySelector('#instructions-list');
+      var instr = test.instructions && (test.instructions.hi || test.instructions.en);
+      if (instrList && instr && instr.length) {
+        instrList.innerHTML = '';
+        instr.forEach(function(line) {
+          var li = document.createElement('li');
+          li.textContent = line;
+          instrList.appendChild(li);
+        });
+      }
+
+      var backBtn = page.querySelector('#mock-config-back');
+      if (backBtn) backBtn.addEventListener('click', function() {
+        if (window.App) App.navigate('#mock-test-list');
+        else window.location.hash = '#mock-test-list';
+      });
+
+      var startBtn = page.querySelector('#mock-start-btn');
+      if (startBtn) {
+        startBtn.addEventListener('click', function() {
+          var picked = [];
+          var sections = null;
+          if (test.data) {
+            // Real exam pattern: N questions per section from the matching subject
+            var built = QuestionBank.buildMockQuestions(test.data);
+            picked = built.questions;
+            sections = built.sections;
+            if (built.short) console.warn('[Mock] ' + built.short + ' question(s) short for', test.id);
+          } else {
+            var allQs = [];
+            try { allQs = JSON.parse(localStorage.getItem('es_questions') || '[]'); } catch(e) {}
+            picked = window.QuestionBank ? QuestionBank.shuffle(allQs).slice(0, test.questions) : allQs.slice(0, test.questions);
+          }
+
+          // Demo fallback questions
+          if (picked.length < 5) {
+            picked = [
+              { id:'m1',  category:'math',      text:'64 का वर्गमूल कितना है?',              textEn:'Square root of 64?',                       options:['6','7','8','9'],           correctIndex:2, difficulty:'easy',   explanation:'√64 = 8' },
+              { id:'m2',  category:'reasoning', text:'श्रृंखला: 2, 4, 8, 16, ?',              textEn:'Series: 2,4,8,16,?',                        options:['24','30','32','36'],        correctIndex:2, difficulty:'easy',   explanation:'प्रत्येक संख्या दोगुनी होती है' },
+              { id:'m3',  category:'gk',        text:'भारत का राष्ट्रीय खेल कौन सा है?',      textEn:'National sport of India?',                  options:['क्रिकेट','हॉकी','कबड्डी','फुटबॉल'], correctIndex:1, difficulty:'easy', explanation:'हॉकी भारत का राष्ट्रीय खेल है' },
+              { id:'m4',  category:'english',   text:'Synonym of "Happy":',                    textEn:'Synonym of "Happy":',                       options:['Sad','Joyful','Angry','Tired'], correctIndex:1, difficulty:'easy', explanation:'Joyful means happy/pleased' },
+              { id:'m5',  category:'science',   text:'प्रकाश की गति कितनी है?',               textEn:'Speed of light?',                           options:['3×10⁸ m/s','3×10⁶ m/s','3×10¹⁰ m/s','3×10⁴ m/s'], correctIndex:0, difficulty:'medium', explanation:'प्रकाश की गति = 3×10⁸ m/s' },
+              { id:'m6',  category:'math',      text:'LCM of 4 and 6 is:',                     textEn:'LCM of 4 and 6 is:',                        options:['12','24','8','6'],          correctIndex:0, difficulty:'easy',   explanation:'LCM(4,6) = 12' },
+              { id:'m7',  category:'gk',        text:'ताजमहल किसने बनवाया था?',               textEn:'Who built the Taj Mahal?',                  options:['अकबर','शाहजहाँ','औरंगज़ेब','हुमायूं'], correctIndex:1, difficulty:'easy', explanation:'शाहजहाँ ने अपनी पत्नी मुमताज की याद में बनवाया' },
+              { id:'m8',  category:'computer',  text:'1 KB = कितने bytes?',                    textEn:'1 KB = how many bytes?',                    options:['512','1000','1024','2048'], correctIndex:2, difficulty:'easy',   explanation:'1 KB = 1024 bytes' },
+              { id:'m9',  category:'gk',        text:'संविधान सभा के अध्यक्ष कौन थे?',        textEn:'Who was the President of Constituent Assembly?', options:['नेहरू','अंबेडकर','राजेंद्र प्रसाद','पटेल'], correctIndex:2, difficulty:'medium', explanation:'डॉ. राजेंद्र प्रसाद संविधान सभा के अध्यक्ष थे' },
+              { id:'m10', category:'math',      text:'एक घन का आयतन (भुजा = 3) = ?',          textEn:'Volume of cube with side 3?',               options:['9','18','27','81'],         correctIndex:2, difficulty:'easy',   explanation:'V = a³ = 3³ = 27' }
+            ];
+            // Repeat to fill count
+            while (picked.length < test.questions) {
+              picked = picked.concat(picked).slice(0, test.questions);
+            }
+          }
+
+          var session = {
+            questions: picked,
+            mode: 'mock',
+            testId: test.id,
+            testName: test.name,
+            negative: test.negative,
+            marksPerQ: test.marksPerQ,
+            sections: sections,
+            category: 'all',
+            timeLimit: test.time * 60,
+            startTime: Date.now()
+          };
+          try { localStorage.setItem('es_current_session', JSON.stringify(session)); } catch(e) {}
+          if (window.App) App.navigate('#quiz-session');
+          else window.location.hash = '#quiz-session';
+        });
+      }
+    })();
+    </script>
+  </template>
+
+  <!-- ── QUIZ SESSION ── -->
+  <template id="tpl-quiz-session">
+    <div class="page page-quiz" id="page-quiz" role="main">
+
+      <!-- TOP BAR -->
+      <div class="quiz-top-bar">
+        <button class="quiz-exit-btn icon-btn" id="quiz-exit-btn" aria-label="टेस्ट छोड़ें">✕</button>
+        <div class="quiz-progress-info">
+          <span class="quiz-q-counter" id="quiz-q-counter" aria-live="polite">Q 1/10</span>
+          <div class="progress-bar quiz-progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
+            <div class="progress-fill" id="quiz-progress-fill" style="width:10%"></div>
+          </div>
+        </div>
+        <div class="quiz-timer-wrap" id="quiz-timer-wrap">
+          <span class="quiz-timer" id="quiz-timer" aria-live="off" aria-label="शेष समय">10:00</span>
+        </div>
+      </div>
+
+      <!-- TIMER WARNING -->
+      <div class="timer-warning hidden" id="timer-warning" role="alert" aria-live="assertive">
+        <span data-i18n="quiz.time_low">⚠️ 5 मिनट से कम समय बचा है!</span>
+      </div>
+
+      <!-- SUBJECT BADGE -->
+      <div class="quiz-subject-row">
+        <span class="badge" id="quiz-subject-badge">सामान्य</span>
+        <span class="badge badge-outline" id="quiz-mode-badge">अभ्यास</span>
+      </div>
+
+      <!-- QUESTION -->
+      <div class="quiz-question-card card card-padded" id="quiz-question-card">
+        <div class="question-number" id="q-number">प्रश्न 1</div>
+        <div class="question-text" id="q-text" aria-live="polite">प्रश्न लोड हो रहा है...</div>
+        <div class="question-text-en hidden" id="q-text-en"></div>
+      </div>
+
+      <!-- OPTIONS -->
+      <div class="quiz-options" id="quiz-options" role="group" aria-label="उत्तर के विकल्प">
+        <button class="option-card" data-opt="0" aria-label="विकल्प A">
+          <span class="option-label" aria-hidden="true">A</span>
+          <span class="option-text" id="opt-0">...</span>
+        </button>
+        <button class="option-card" data-opt="1" aria-label="विकल्प B">
+          <span class="option-label" aria-hidden="true">B</span>
+          <span class="option-text" id="opt-1">...</span>
+        </button>
+        <button class="option-card" data-opt="2" aria-label="विकल्प C">
+          <span class="option-label" aria-hidden="true">C</span>
+          <span class="option-text" id="opt-2">...</span>
+        </button>
+        <button class="option-card" data-opt="3" aria-label="विकल्प D">
+          <span class="option-label" aria-hidden="true">D</span>
+          <span class="option-text" id="opt-3">...</span>
+        </button>
+      </div>
+
+      <!-- EXPLANATION PANEL -->
+      <div class="explanation-panel hidden" id="explanation-panel" role="note" aria-label="व्याख्या">
+        <div class="explanation-header">
+          <span class="explanation-result-icon" id="exp-result-icon" aria-hidden="true">✅</span>
+          <span class="explanation-result-text" id="exp-result-text">सही जवाब!</span>
+        </div>
+        <p class="explanation-text" id="explanation-text"></p>
+      </div>
+
+      <!-- ACTION ROW -->
+      <div class="quiz-action-row">
+        <button class="btn btn-outline quiz-action-btn" id="bookmark-btn" aria-label="बुकमार्क करें" aria-pressed="false">
+          <span id="bookmark-icon">🔖</span>
+        </button>
+        <button class="btn btn-outline quiz-action-btn" id="flag-btn" aria-label="संशय में चिह्नित करें" aria-pressed="false">
+          <span id="flag-icon">🚩</span>
+        </button>
+        <button class="btn btn-outline quiz-action-btn" id="hint-btn" aria-label="संकेत देखें" aria-pressed="false">
+          <span>💡</span>
+        </button>
+      </div>
+
+      <!-- NAVIGATION ROW -->
+      <div class="quiz-nav-row">
+        <button class="btn btn-outline quiz-nav-btn" id="quiz-prev-btn" aria-label="पिछला सवाल" disabled>
+          <span data-i18n="quiz.prev">← पिछला</span>
+        </button>
+        <button class="btn btn-outline quiz-nav-btn" id="quiz-palette-btn" aria-label="प्रश्न सूची देखें">
+          <span>⊞</span>
+        </button>
+        <button class="btn btn-primary quiz-nav-btn" id="quiz-next-btn" aria-label="अगला सवाल">
+          <span id="quiz-next-label" data-i18n="quiz.next">अगला →</span>
+        </button>
+      </div>
+
+      <!-- QUESTION PALETTE (mock mode overlay) -->
+      <div class="quiz-palette-overlay hidden" id="quiz-palette-overlay" role="dialog" aria-modal="true" aria-label="सवाल पैलेट">
+        <div class="quiz-palette-panel">
+          <div class="palette-header">
+            <h3 data-i18n="quiz.palette_title">सवाल पैलेट</h3>
+            <button class="icon-btn" id="palette-close-btn" aria-label="बंद करें">✕</button>
+          </div>
+          <div class="palette-legend">
+            <span class="palette-dot dot-answered" aria-hidden="true"></span><span>उत्तरित</span>
+            <span class="palette-dot dot-flagged" aria-hidden="true"></span><span>संशय</span>
+            <span class="palette-dot dot-current" aria-hidden="true"></span><span>वर्तमान</span>
+            <span class="palette-dot dot-unanswered" aria-hidden="true"></span><span>अनुत्तरित</span>
+          </div>
+          <div class="palette-grid" id="palette-grid"></div>
+          <button class="btn btn-primary btn-block" id="palette-submit-btn" aria-label="टेस्ट सबमिट करें">
+            <span data-i18n="quiz.submit_test">टेस्ट सबमिट करें</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-quiz');
+      if (!page) return;
+
+      // ── Load session ──
+      var session = {};
+      try { session = JSON.parse(localStorage.getItem('es_current_session') || '{}'); } catch(e) {}
+      var questions   = session.questions || [];
+      var mode        = session.mode || 'practice';
+      var timeLimit   = session.timeLimit || (mode === 'daily' ? 600 : mode === 'mock' ? 1800 : 0);
+      var negMark     = session.negative || 0;
+
+      if (!questions.length) {
+        page.querySelector('#q-text').textContent = 'कोई सवाल नहीं मिला। वापस जाएं।';
+        return;
+      }
+
+      var total       = questions.length;
+      var currentIdx  = 0;
+      var answers     = new Array(total).fill(-1);   // -1 = unanswered
+      var flagged     = new Array(total).fill(false);
+      var bookmarked  = questions.map(function(q) { return !!(window.Bookmarks && Bookmarks.isSaved(q.id)); });
+      var marksPerQ   = session.marksPerQ || 1;
+      var submitted   = false;
+      var timerInterval = null;
+      var timeRemaining = timeLimit;
+      var isLang = document.body.classList.contains('app-lang-en') ? 'en' : 'hi';
+
+      var CAT_NAMES = {
+        math:'गणित', reasoning:'तर्कशक्ति', english:'अंग्रेज़ी', gk:'सामान्य ज्ञान',
+        science:'विज्ञान', haryana:'हरियाणा GK', computer:'कंप्यूटर', hindi:'हिंदी', current:'करंट अफेयर्स', all:'सभी'
+      };
+
+      // ── DOM refs ──
+      var qCounter     = page.querySelector('#quiz-q-counter');
+      var progressFill = page.querySelector('#quiz-progress-fill');
+      var timerEl      = page.querySelector('#quiz-timer');
+      var timerWrap    = page.querySelector('#quiz-timer-wrap');
+      var timerWarn    = page.querySelector('#timer-warning');
+      var subjectBadge = page.querySelector('#quiz-subject-badge');
+      var modeBadge    = page.querySelector('#quiz-mode-badge');
+      var qNumber      = page.querySelector('#q-number');
+      var qText        = page.querySelector('#q-text');
+      var qTextEn      = page.querySelector('#q-text-en');
+      var optCards     = page.querySelectorAll('.option-card');
+      var expPanel     = page.querySelector('#explanation-panel');
+      var expIcon      = page.querySelector('#exp-result-icon');
+      var expText      = page.querySelector('#exp-result-text');
+      var expBody      = page.querySelector('#explanation-text');
+      var bookmarkBtn  = page.querySelector('#bookmark-btn');
+      var flagBtn      = page.querySelector('#flag-btn');
+      var hintBtn      = page.querySelector('#hint-btn');
+      var prevBtn      = page.querySelector('#quiz-prev-btn');
+      var nextBtn      = page.querySelector('#quiz-next-btn');
+      var nextLabel    = page.querySelector('#quiz-next-label');
+      var paletteBtn   = page.querySelector('#quiz-palette-btn');
+      var paletteOverlay = page.querySelector('#quiz-palette-overlay');
+      var paletteGrid  = page.querySelector('#palette-grid');
+      var paletteClose = page.querySelector('#palette-close-btn');
+      var palSubmit    = page.querySelector('#palette-submit-btn');
+      var exitBtn      = page.querySelector('#quiz-exit-btn');
+
+      if (modeBadge) modeBadge.textContent = mode === 'mock' ? 'मॉक टेस्ट' : mode === 'daily' ? 'दैनिक क्विज़' : 'अभ्यास';
+
+      // ── Timer ──
+      function formatTime(secs) {
+        var m = Math.floor(secs / 60);
+        var s = secs % 60;
+        return (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+      }
+
+      function startTimer() {
+        if (!timeLimit) return;
+        timerEl.textContent = formatTime(timeRemaining);
+        timerInterval = setInterval(function() {
+          // Stop if the user has left the quiz page (e.g. pressed Back);
+          // otherwise the timer would later submit and jump to the result page.
+          if (!page.isConnected) { clearInterval(timerInterval); return; }
+          timeRemaining--;
+          timerEl.textContent = formatTime(timeRemaining);
+          if (timeRemaining <= 300 && timerWarn) timerWarn.classList.remove('hidden');
+          if (timeRemaining <= 60 && timerWrap) timerWrap.classList.add('timer-critical');
+          if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            submitQuiz();
+          }
+        }, 1000);
+      }
+
+      // ── Render question ──
+      function renderQuestion(idx) {
+        var q = questions[idx];
+        if (!q) return;
+
+        var pct = Math.round(((idx + 1) / total) * 100);
+        if (qCounter)     qCounter.textContent    = 'Q ' + (idx + 1) + '/' + total;
+        if (progressFill) progressFill.style.width = pct + '%';
+        if (progressFill) progressFill.parentElement.setAttribute('aria-valuenow', pct);
+        if (qNumber)      qNumber.textContent = 'प्रश्न ' + (idx + 1);
+
+        var catName = CAT_NAMES[q.category] || q.category || '—';
+        if (subjectBadge) subjectBadge.textContent = catName;
+
+        // Question text (bilingual)
+        var showEn = document.body.classList.contains('app-lang-en');
+        if (qText) {
+          qText.textContent = (showEn && q.textEn) ? q.textEn : (q.text || q.textEn || '');
+          qText.classList.toggle('hidden', false);
+        }
+        if (qTextEn) qTextEn.classList.add('hidden');
+
+        // Options
+        var opts = q.options || [];
+        optCards.forEach(function(card, i) {
+          var optText = card.querySelector('.option-text');
+          if (optText) optText.textContent = (showEn && q.optionsEn && q.optionsEn[i]) ? q.optionsEn[i] : (opts[i] || '');
+          card.classList.remove('selected', 'correct', 'wrong', 'revealed');
+          card.disabled = false;
+        });
+
+        // Restore answer state
+        var ans = answers[idx];
+        if (ans !== -1) {
+          markAnswer(idx, ans, false);
+        }
+
+        // Explanation
+        if (expPanel) expPanel.classList.add('hidden');
+
+        // Practice mode: auto-show explanation if already answered
+        if (mode === 'practice' && ans !== -1) showExplanation(idx);
+
+        // Bookmark / flag state
+        if (bookmarkBtn) bookmarkBtn.setAttribute('aria-pressed', bookmarked[idx] ? 'true' : 'false');
+        if (flagBtn)     flagBtn.setAttribute('aria-pressed',     flagged[idx]    ? 'true' : 'false');
+        bookmarkBtn && (bookmarkBtn.querySelector('#bookmark-icon').textContent = bookmarked[idx] ? '🔖✅' : '🔖');
+        flagBtn     && (flagBtn.querySelector('#flag-icon').textContent         = flagged[idx]    ? '🚩✅' : '🚩');
+
+        // Nav buttons
+        if (prevBtn) prevBtn.disabled = (idx === 0);
+        if (nextLabel) {
+          nextLabel.textContent = (idx === total - 1) ? 'सबमिट करें ✓' : 'अगला →';
+        }
+      }
+
+      function markAnswer(idx, optIdx, interactive) {
+        var q = questions[idx];
+        optCards.forEach(function(card, i) {
+          card.classList.remove('selected','correct','wrong');
+          if (mode !== 'practice') {
+            if (i === optIdx) card.classList.add('selected');
+          } else {
+            // Practice mode: show correct/wrong immediately
+            if (i === q.correctIndex) card.classList.add('correct');
+            if (i === optIdx && optIdx !== q.correctIndex) card.classList.add('wrong');
+            if (i === optIdx) card.classList.add('selected');
+            card.disabled = true;
+          }
+        });
+        if (mode !== 'practice') {
+          optCards[optIdx] && optCards[optIdx].classList.add('selected');
+        }
+        if (interactive && mode === 'practice') showExplanation(idx);
+      }
+
+      function showExplanation(idx) {
+        var q   = questions[idx];
+        var ans = answers[idx];
+        if (!expPanel || ans === -1) return;
+        var correct = (ans === q.correctIndex);
+        expPanel.classList.remove('hidden');
+        if (expIcon) expIcon.textContent = correct ? '✅' : '❌';
+        if (expText) expText.textContent = correct ? 'सही जवाब!' : 'गलत! सही जवाब: ' + String.fromCharCode(65 + q.correctIndex);
+        var expEn = document.body.classList.contains('app-lang-en');
+        if (expBody) expBody.textContent = (expEn && q.explanationEn ? q.explanationEn : (q.explanation || q.explanationEn)) || (expEn ? 'No explanation available.' : 'कोई व्याख्या उपलब्ध नहीं।');
+        expPanel.style.borderColor = correct ? '#4CAF50' : '#F44336';
+      }
+
+      // ── Option click ──
+      optCards.forEach(function(card) {
+        card.addEventListener('click', function() {
+          var optIdx = parseInt(card.dataset.opt, 10);
+          if (mode === 'practice' && answers[currentIdx] !== -1) return; // already answered
+          answers[currentIdx] = optIdx;
+          markAnswer(currentIdx, optIdx, true);
+        });
+      });
+
+      // ── Navigation ──
+      function goTo(idx) {
+        if (idx < 0 || idx >= total) return;
+        currentIdx = idx;
+        renderQuestion(currentIdx);
+        updatePalette();
+      }
+
+      if (prevBtn) prevBtn.addEventListener('click', function() { goTo(currentIdx - 1); });
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        if (currentIdx === total - 1) {
+          // Show confirm in mock mode
+          if (mode === 'mock') { showPalette(); return; }
+          submitQuiz();
+        } else {
+          goTo(currentIdx + 1);
+        }
+      });
+
+      // ── Palette ──
+      function buildPalette() {
+        if (!paletteGrid) return;
+        paletteGrid.innerHTML = '';
+        for (var i = 0; i < total; i++) {
+          var btn = document.createElement('button');
+          btn.className = 'palette-num';
+          btn.textContent = i + 1;
+          btn.setAttribute('aria-label', 'सवाल ' + (i+1));
+          btn.dataset.qidx = i;
+          if (i === currentIdx) btn.classList.add('dot-current');
+          else if (flagged[i]) btn.classList.add('dot-flagged');
+          else if (answers[i] !== -1) btn.classList.add('dot-answered');
+          else btn.classList.add('dot-unanswered');
+          btn.addEventListener('click', function() {
+            goTo(parseInt(this.dataset.qidx, 10));
+            hidePalette();
+          });
+          paletteGrid.appendChild(btn);
+        }
+      }
+
+      function updatePalette() { if (!paletteOverlay.classList.contains('hidden')) buildPalette(); }
+
+      function showPalette() {
+        buildPalette();
+        if (paletteOverlay) paletteOverlay.classList.remove('hidden');
+      }
+      function hidePalette() { if (paletteOverlay) paletteOverlay.classList.add('hidden'); }
+
+      if (paletteBtn) paletteBtn.addEventListener('click', showPalette);
+      if (paletteClose) paletteClose.addEventListener('click', hidePalette);
+      if (palSubmit) palSubmit.addEventListener('click', function() { hidePalette(); submitQuiz(); });
+
+      // ── Bookmark / Flag / Hint ──
+      if (bookmarkBtn) {
+        bookmarkBtn.addEventListener('click', function() {
+          // Persist via the Bookmarks module (adds or removes)
+          if (window.Bookmarks) bookmarked[currentIdx] = Bookmarks.toggleSave(questions[currentIdx]);
+          else bookmarked[currentIdx] = !bookmarked[currentIdx];
+          bookmarkBtn.setAttribute('aria-pressed', bookmarked[currentIdx] ? 'true' : 'false');
+          bookmarkBtn.querySelector('#bookmark-icon').textContent = bookmarked[currentIdx] ? '🔖✅' : '🔖';
+        });
+      }
+
+      if (flagBtn) {
+        flagBtn.addEventListener('click', function() {
+          flagged[currentIdx] = !flagged[currentIdx];
+          flagBtn.setAttribute('aria-pressed', flagged[currentIdx] ? 'true' : 'false');
+          flagBtn.querySelector('#flag-icon').textContent = flagged[currentIdx] ? '🚩✅' : '🚩';
+        });
+      }
+
+      if (hintBtn) {
+        hintBtn.addEventListener('click', function() {
+          var q = questions[currentIdx];
+          var hintEn = document.body.classList.contains('app-lang-en');
+          var hint = (hintEn && q.explanationEn) ? q.explanationEn : (q.explanation || q.explanationEn);
+          if (expPanel && hint) {
+            expPanel.classList.toggle('hidden');
+            if (!expPanel.classList.contains('hidden')) {
+              if (expIcon) expIcon.textContent = '💡';
+              if (expText) expText.textContent = 'संकेत / Hint';
+              if (expBody) expBody.textContent = hint;
+            }
+          }
+        });
+      }
+
+      // ── Exit ──
+      if (exitBtn) {
+        exitBtn.addEventListener('click', function() {
+          if (timerInterval) clearInterval(timerInterval);
+          var confirmed = window.confirm('क्या आप टेस्ट छोड़ना चाहते हैं?');
+          if (confirmed) {
+            if (window.App) App.navigate('#home');
+            else window.location.hash = '#home';
+          } else {
+            startTimer();
+          }
+        });
+      }
+
+      // ── Submit ──
+      function submitQuiz() {
+        if (submitted) return;   // timer expiry + button tap can both fire
+        submitted = true;
+        if (timerInterval) clearInterval(timerInterval);
+
+        var correct   = 0;
+        var wrong     = 0;
+        var skipped   = 0;
+        var catStats  = {};
+
+        questions.forEach(function(q, i) {
+          var ans = answers[i];
+          var cat = q.category || 'all';
+          if (!catStats[cat]) catStats[cat] = { correct:0, wrong:0, skipped:0, total:0 };
+          catStats[cat].total++;
+
+          if (ans === -1) {
+            skipped++;
+            catStats[cat].skipped++;
+          } else if (ans === q.correctIndex) {
+            correct++;
+            catStats[cat].correct++;
+          } else {
+            wrong++;
+            catStats[cat].wrong++;
+            if (window.Bookmarks) Bookmarks.addWrong(q, ans);   // wrong-answers list
+          }
+        });
+
+        var score    = Math.round((correct * marksPerQ + negMark * wrong) * 100) / 100;
+        var maxMarks = total * marksPerQ;
+        var acc      = (correct + wrong) > 0 ? Math.round((correct / (correct + wrong)) * 100) : 0;
+        var timeTaken = timeLimit ? timeLimit - timeRemaining
+                                  : Math.round((Date.now() - (session.startTime || Date.now())) / 1000);
+
+        // Record through the shared modules (single source of truth)
+        var categoryBreakdown = Object.keys(catStats).map(function(cat) {
+          var cs = catStats[cat];
+          return { category: cat, correct: cs.correct, wrong: cs.wrong, skipped: cs.skipped };
+        });
+        if (window.Analytics) Analytics.saveResult({
+          type: mode, testId: session.testId || mode, testName: session.testName || mode,
+          category: session.category || 'all', correct: correct, wrong: wrong, skipped: skipped,
+          total: total, marks: score, maxMarks: maxMarks, accuracy: acc, timeTaken: timeTaken,
+          categoryBreakdown: categoryBreakdown
+        });
+        if (window.Auth)   Auth.recordAttempt({ correct: correct, wrong: wrong, skipped: skipped });
+        if (window.Streak) Streak.markToday();
+
+        // Local leaderboard: mock tests only
+        var user = window.Auth ? Auth.getUser() : null;
+        if (mode === 'mock' && user && window.Leaderboard) {
+          Leaderboard.addEntry({
+            name: user.name, score: score, maxScore: maxMarks, accuracy: acc,
+            testId: session.testId || 'mock', testName: session.testName || 'Mock Test'
+          });
+        }
+
+        // Result page data (this attempt only)
+        var result = {
+          total:    total,
+          correct:  correct,
+          wrong:    wrong,
+          skipped:  skipped,
+          score:    score,
+          maxMarks: maxMarks,
+          accuracy: acc,
+          catStats: catStats,
+          mode:     mode,
+          testName: session.testName || mode,
+          timeTaken: timeTaken,
+          timestamp: Date.now()
+        };
+        try { localStorage.setItem('es_last_result', JSON.stringify(result)); } catch(e) {}
+
+        if (window.App) App.navigate('#result');
+        else window.location.hash = '#result';
+      }
+
+      // ── Init ──
+      startTimer();
+      renderQuestion(0);
+    })();
+    </script>
+  </template>
+
+  <!-- ── RESULT ── -->
+  <template id="tpl-result">
+    <div class="page page-result" id="page-result">
+      <header class="page-header">
+        <h1 class="page-title" data-i18n="result.title">परिणाम</h1>
+      </header>
+
+      <!-- SCORE CIRCLE -->
+      <div class="result-score-section">
+        <div class="score-circle" id="score-circle" role="img" aria-label="स्कोर">
+          <div class="score-circle-inner">
+            <div class="score-pct" id="result-pct">0%</div>
+            <div class="score-label" data-i18n="result.score">स्कोर</div>
+          </div>
+        </div>
+        <div class="result-message" id="result-message">अच्छा प्रयास!</div>
+        <div class="result-test-name" id="result-test-name"></div>
+      </div>
+
+      <!-- STAT BOXES -->
+      <div class="grid-2 result-stats" id="result-stats">
+        <div class="stat-box stat-correct">
+          <div class="stat-value" id="res-correct">0</div>
+          <div class="stat-label" data-i18n="result.correct">✅ सही</div>
+        </div>
+        <div class="stat-box stat-wrong">
+          <div class="stat-value" id="res-wrong">0</div>
+          <div class="stat-label" data-i18n="result.wrong">❌ गलत</div>
+        </div>
+        <div class="stat-box stat-skipped">
+          <div class="stat-value" id="res-skipped">0</div>
+          <div class="stat-label" data-i18n="result.skipped">⏭️ छोड़े</div>
+        </div>
+        <div class="stat-box stat-accuracy">
+          <div class="stat-value" id="res-accuracy">0%</div>
+          <div class="stat-label" data-i18n="result.accuracy">🎯 सटीकता</div>
+        </div>
+      </div>
+
+      <!-- SUBJECT BREAKDOWN -->
+      <section class="result-breakdown card card-padded" id="result-breakdown" aria-labelledby="breakdown-heading">
+        <h2 class="section-header" id="breakdown-heading" data-i18n="result.breakdown">विषयवार प्रदर्शन</h2>
+        <div id="breakdown-bars"></div>
+      </section>
+
+      <!-- DEMO NOTICE -->
+      <div class="demo-notice card card-padded" role="note">
+        <span aria-hidden="true">ℹ️</span>
+        <span data-i18n="result.demo_note">ये डेमो परिणाम है। लाइव लीडरबोर्ड जल्द आ रहा है।</span>
+      </div>
+
+      <!-- ACTIONS -->
+      <div class="result-actions">
+        <button class="btn btn-outline" id="result-review-btn" aria-label="उत्तर समीक्षा करें">
+          <span data-i18n="result.review">📋 समीक्षा करें</span>
+        </button>
+        <button class="btn btn-outline" id="result-again-btn" aria-label="फिर से करें">
+          <span data-i18n="result.try_again">🔄 फिर करें</span>
+        </button>
+        <button class="btn btn-primary" id="result-home-btn" aria-label="होम जाएं">
+          <span data-i18n="result.go_home">🏠 होम</span>
+        </button>
+      </div>
+
+      <!-- CONFETTI (injected by JS on good score) -->
+      <div id="confetti-container" aria-hidden="true"></div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-result');
+      if (!page) return;
+
+      var result = {};
+      try { result = JSON.parse(localStorage.getItem('es_last_result') || '{}'); } catch(e) {}
+
+      var pct  = result.accuracy || 0;
+      var setT = function(id, val) { var el = page.querySelector('#' + id); if (el) el.textContent = val; };
+
+      setT('result-pct',    pct + '%');
+      setT('res-correct',   result.correct  || 0);
+      setT('res-wrong',     result.wrong    || 0);
+      setT('res-skipped',   result.skipped  || 0);
+      setT('res-accuracy',  pct + '%');
+      setT('result-test-name', (result.testName || '') +
+        (result.mode === 'mock' && result.maxMarks ? ' • ' + result.score + ' / ' + result.maxMarks + ' अंक' : ''));
+
+      // Score circle color
+      var circle = page.querySelector('#score-circle');
+      if (circle) {
+        if (pct >= 75)      circle.classList.add('score-excellent');
+        else if (pct >= 50) circle.classList.add('score-good');
+        else if (pct >= 25) circle.classList.add('score-average');
+        else                circle.classList.add('score-poor');
+      }
+
+      // Result message
+      var msgEl = page.querySelector('#result-message');
+      if (msgEl) {
+        if (pct >= 85)      msgEl.textContent = '🏆 शानदार! बेहतरीन प्रदर्शन!';
+        else if (pct >= 65) msgEl.textContent = '👍 बहुत अच्छा! और मेहनत करें।';
+        else if (pct >= 40) msgEl.textContent = '📚 ठीक है। नियमित अभ्यास जारी रखें।';
+        else                msgEl.textContent = '💪 निराश मत हों। फिर से कोशिश करें!';
+      }
+
+      // Subject breakdown bars
+      var barsContainer = page.querySelector('#breakdown-bars');
+      if (barsContainer && result.catStats) {
+        var CAT_NAMES = {
+          math:'गणित', reasoning:'तर्कशक्ति', english:'अंग्रेज़ी', gk:'सामान्य ज्ञान',
+          science:'विज्ञान', haryana:'हरियाणा GK', computer:'कंप्यूटर', hindi:'हिंदी', current:'करंट अफेयर्स'
+        };
+        Object.keys(result.catStats).forEach(function(cat) {
+          var cs   = result.catStats[cat];
+          var cacc = cs.total > 0 ? Math.round((cs.correct / cs.total) * 100) : 0;
+          var row  = document.createElement('div');
+          row.className = 'breakdown-row';
+          row.innerHTML =
+            '<div class="breakdown-label">' + (CAT_NAMES[cat] || cat) + '</div>' +
+            '<div class="progress-bar breakdown-bar" role="progressbar" aria-valuenow="' + cacc + '" aria-valuemin="0" aria-valuemax="100">' +
+              '<div class="progress-fill" style="width:' + cacc + '%"></div>' +
+            '</div>' +
+            '<div class="breakdown-pct">' + cacc + '%</div>';
+          barsContainer.appendChild(row);
+        });
+      }
+
+      // Confetti on good score
+      if (pct >= 65) {
+        var confetti = page.querySelector('#confetti-container');
+        if (confetti) {
+          for (var i = 0; i < 30; i++) {
+            var dot = document.createElement('div');
+            dot.className = 'confetti-dot';
+            dot.style.left = Math.random() * 100 + '%';
+            dot.style.animationDelay = (Math.random() * 2) + 's';
+            dot.style.backgroundColor = ['#FF6F00','#1A237E','#4CAF50','#F44336','#FFD700'][Math.floor(Math.random()*5)];
+            confetti.appendChild(dot);
+          }
+        }
+      }
+
+      // Actions
+      var homeBtn   = page.querySelector('#result-home-btn');
+      var againBtn  = page.querySelector('#result-again-btn');
+      var reviewBtn = page.querySelector('#result-review-btn');
+
+      if (homeBtn)   homeBtn.addEventListener('click',   function() { if(window.App) App.navigate('#home'); else window.location.hash='#home'; });
+      if (againBtn)  againBtn.addEventListener('click',  function() { if(window.App) App.navigate('#categories'); else window.location.hash='#categories'; });
+      if (reviewBtn) reviewBtn.addEventListener('click', function() { if(window.App) App.navigate('#bookmarks'); else window.location.hash='#bookmarks'; });
+    })();
+    </script>
+  </template>
+
+  <!-- ── BOOKMARKS ── -->
+  <template id="tpl-bookmarks">
+    <div class="page page-bookmarks" id="page-bookmarks">
+      <header class="page-header">
+        <h1 class="page-title" data-i18n="bookmarks.title">सेव किए गए</h1>
+        <button class="icon-btn" id="clear-all-btn" aria-label="सब हटाएं">🗑️</button>
+      </header>
+
+      <!-- TAB SWITCHER -->
+      <div class="tab-switcher" role="tablist" aria-label="Bookmarks tabs">
+        <button class="tab-btn active" id="tab-saved" role="tab" aria-selected="true" aria-controls="panel-saved" data-i18n="bookmarks.saved">🔖 सेव किए</button>
+        <button class="tab-btn" id="tab-wrong" role="tab" aria-selected="false" aria-controls="panel-wrong" data-i18n="bookmarks.wrong_answers">❌ गलत जवाब</button>
+      </div>
+
+      <!-- SAVED PANEL -->
+      <div id="panel-saved" role="tabpanel" aria-labelledby="tab-saved">
+        <div class="bookmark-list" id="saved-list"></div>
+        <div class="empty-state hidden" id="saved-empty">
+          <div class="empty-icon" aria-hidden="true">🔖</div>
+          <p data-i18n="bookmarks.saved_empty">कोई सेव किया सवाल नहीं।<br>क्विज़ में 🔖 बटन दबाएं।</p>
+        </div>
+      </div>
+
+      <!-- WRONG ANSWERS PANEL -->
+      <div id="panel-wrong" role="tabpanel" aria-labelledby="tab-wrong" class="hidden">
+        <div class="bookmark-list" id="wrong-list"></div>
+        <div class="empty-state hidden" id="wrong-empty">
+          <div class="empty-icon" aria-hidden="true">🎉</div>
+          <p data-i18n="bookmarks.wrong_empty">अभी तक कोई गलत जवाब नहीं!<br>बढ़िया प्रदर्शन!</p>
+        </div>
+      </div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-bookmarks');
+      if (!page) return;
+
+      var CAT_NAMES = {
+        math:'गणित', reasoning:'तर्कशक्ति', english:'अंग्रेज़ी', gk:'सामान्य ज्ञान',
+        science:'विज्ञान', haryana:'हरियाणा GK', computer:'कंप्यूटर', hindi:'हिंदी', current:'करंट अफेयर्स', all:'सभी'
+      };
+
+      // Shared Bookmarks module (keys es_bookmarks_saved / es_bookmarks_wrong)
+      function loadSaved()  { return window.Bookmarks ? Bookmarks.getSaved() : []; }
+      function loadWrong()  { return window.Bookmarks ? Bookmarks.getWrong() : []; }
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
+          return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+        });
+      }
+
+      function renderList(questions, container, emptyEl) {
+        container.innerHTML = '';
+        if (!questions.length) { emptyEl.classList.remove('hidden'); return; }
+        emptyEl.classList.add('hidden');
+        questions.forEach(function(q) {
+          var card = document.createElement('div');
+          card.className = 'bookmark-card card card-padded';
+          var showEn = document.body.classList.contains('app-lang-en');
+          var full = (showEn && q.textEn) ? q.textEn : (q.text || q.textEn || '');
+          var text = full.substring(0, 80) + (full.length > 80 ? '…' : '');
+          card.innerHTML =
+            '<div class="bm-top">' +
+              '<span class="badge badge-outline bm-cat">' + esc(CAT_NAMES[q.category] || q.category || '—') + '</span>' +
+            '</div>' +
+            '<div class="bm-text">' + esc(text) + '</div>' +
+            '<div class="bm-actions">' +
+              '<button class="btn btn-outline bm-practice-btn" data-qid="' + esc(q.id) + '" aria-label="इस सवाल का अभ्यास करें">' +
+                '<span data-i18n="bookmarks.practice">अभ्यास करें</span>' +
+              '</button>' +
+              '<button class="btn btn-outline bm-remove-btn" data-qid="' + esc(q.id) + '" aria-label="हटाएं">🗑️</button>' +
+            '</div>';
+          container.appendChild(card);
+        });
+
+        container.querySelectorAll('.bm-practice-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var qid = btn.dataset.qid;
+            var q   = questions.find(function(x) { return x.id === qid; });
+            if (!q) return;
+            var session = { questions:[q], mode:'practice', category: q.category, startTime: Date.now() };
+            try { localStorage.setItem('es_current_session', JSON.stringify(session)); } catch(e) {}
+            if (window.App) App.navigate('#quiz-session');
+            else window.location.hash = '#quiz-session';
+          });
+        });
+
+        container.querySelectorAll('.bm-remove-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var qid = btn.dataset.qid;
+            if (window.Bookmarks) {
+              if (container.id === 'saved-list') {
+                var q = questions.find(function(x) { return x.id === qid; });
+                if (q && Bookmarks.isSaved(qid)) Bookmarks.toggleSave(q);   // removes it
+              } else {
+                Bookmarks.removeWrong(qid);
+              }
+            }
+            renderAll();
+          });
+        });
+      }
+
+      function renderAll() {
+        renderList(loadSaved(), page.querySelector('#saved-list'), page.querySelector('#saved-empty'));
+        renderList(loadWrong(), page.querySelector('#wrong-list'), page.querySelector('#wrong-empty'));
+      }
+
+      renderAll();
+
+      // Tab switch
+      var tabSaved = page.querySelector('#tab-saved');
+      var tabWrong = page.querySelector('#tab-wrong');
+      var panelSaved = page.querySelector('#panel-saved');
+      var panelWrong = page.querySelector('#panel-wrong');
+
+      tabSaved.addEventListener('click', function() {
+        tabSaved.classList.add('active'); tabSaved.setAttribute('aria-selected','true');
+        tabWrong.classList.remove('active'); tabWrong.setAttribute('aria-selected','false');
+        panelSaved.classList.remove('hidden'); panelWrong.classList.add('hidden');
+      });
+      tabWrong.addEventListener('click', function() {
+        tabWrong.classList.add('active'); tabWrong.setAttribute('aria-selected','true');
+        tabSaved.classList.remove('active'); tabSaved.setAttribute('aria-selected','false');
+        panelWrong.classList.remove('hidden'); panelSaved.classList.add('hidden');
+      });
+
+      // Clear all
+      var clearBtn = page.querySelector('#clear-all-btn');
+      if (clearBtn) {
+        clearBtn.addEventListener('click', function() {
+          var isSavedTab = !panelSaved.classList.contains('hidden');
+          var msg = isSavedTab ? 'सभी बुकमार्क हटाएं?' : 'सभी गलत जवाब हटाएं?';
+          if (window.confirm(msg)) {
+            if (window.Bookmarks) {
+              if (isSavedTab) Bookmarks.clearSaved(); else Bookmarks.clearWrong();
+            }
+            renderAll();
+          }
+        });
+      }
+    })();
+    </script>
+  </template>
+
+  <!-- ── PROFILE ── -->
+  <template id="tpl-profile">
+    <div class="page page-profile" id="page-profile">
+      <header class="page-header">
+        <h1 class="page-title" data-i18n="profile.title">प्रोफाइल</h1>
+        <button class="icon-btn" id="profile-edit-btn" aria-label="प्रोफाइल संपादित करें">✏️</button>
+      </header>
+
+      <!-- AVATAR + NAME -->
+      <div class="profile-hero card card-padded">
+        <div class="avatar" id="profile-avatar" aria-hidden="true">R</div>
+        <div class="profile-info">
+          <div class="profile-name" id="profile-name">उपयोगकर्ता</div>
+          <div class="profile-exam-goal" id="profile-exam-goal">
+            <span class="chip" id="profile-goal-chip">SSC</span>
+          </div>
+          <div class="profile-joined" id="profile-joined"></div>
+        </div>
+      </div>
+
+      <!-- STATS GRID -->
+      <section aria-labelledby="profile-stats-heading">
+        <h2 class="section-header" id="profile-stats-heading" data-i18n="profile.stats">आपके आंकड़े</h2>
+        <div class="grid-2">
+          <div class="stat-box"><div class="stat-value" id="p-streak">0</div><div class="stat-label">🔥 स्ट्रीक</div></div>
+          <div class="stat-box"><div class="stat-value" id="p-total">0</div><div class="stat-label">📊 कुल सवाल</div></div>
+          <div class="stat-box"><div class="stat-value" id="p-correct">0</div><div class="stat-label">✅ सही</div></div>
+          <div class="stat-box"><div class="stat-value" id="p-accuracy">0%</div><div class="stat-label">🎯 सटीकता</div></div>
+        </div>
+      </section>
+
+      <!-- CATEGORY ACCURACY BARS -->
+      <section class="card card-padded" aria-labelledby="cat-perf-heading">
+        <h2 class="section-header" id="cat-perf-heading" data-i18n="profile.category_perf">विषयवार प्रदर्शन</h2>
+        <div id="category-bars"></div>
+      </section>
+
+      <!-- ACTIVITY CALENDAR -->
+      <section class="card card-padded" aria-labelledby="activity-heading">
+        <h2 class="section-header" id="activity-heading" data-i18n="profile.activity">गतिविधि (90 दिन)</h2>
+        <div class="activity-calendar" id="activity-calendar" aria-label="90-day activity heatmap"></div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="card card-padded settings-section" aria-labelledby="settings-heading">
+        <h2 class="section-header" id="settings-heading" data-i18n="profile.settings">सेटिंग</h2>
+
+        <div class="settings-row">
+          <span data-i18n="settings.language">भाषा / Language</span>
+          <div class="lang-toggle" role="group" aria-label="Language toggle">
+            <button class="lang-btn" id="settings-lang-hi" data-lang="hi" aria-pressed="true">हिंदी</button>
+            <button class="lang-btn" id="settings-lang-en" data-lang="en" aria-pressed="false">English</button>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <span data-i18n="settings.notifications">नोटिफिकेशन</span>
+          <label class="toggle" aria-label="Enable notifications">
+            <input type="checkbox" id="notif-toggle" checked>
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+
+        <div class="settings-row settings-row-danger">
+          <span data-i18n="settings.reset">सारा डेटा रिसेट करें</span>
+          <button class="btn btn-outline btn-danger" id="reset-data-btn" aria-label="डेटा रिसेट करें">
+            <span data-i18n="settings.reset_btn">रिसेट</span>
+          </button>
+        </div>
+      </section>
+
+      <div class="app-version">ExamSaathi v1.0.0 • डेमो बिल्ड</div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-profile');
+      if (!page) return;
+
+      var user  = {}; try { user  = JSON.parse(localStorage.getItem('es_user')  || '{}'); } catch(e) {}
+
+      // Lifetime totals live on the user profile (Auth.recordAttempt)
+      var total   = user.totalQuestions || 0;
+      var correct = user.totalCorrect   || 0;
+      var acc     = total > 0 ? Math.round((correct / total) * 100) : 0;
+      var streak  = window.Streak ? Streak.getCurrent() : 0;
+
+      var setT = function(id, val) { var el = page.querySelector('#' + id); if (el) el.textContent = val; };
+      var name = user.name || 'उपयोगकर्ता';
+      setT('profile-name', name);
+      setT('profile-avatar', name.charAt(0).toUpperCase());
+      setT('p-streak',   streak);
+      setT('p-total',    total);
+      setT('p-correct',  correct);
+      setT('p-accuracy', acc + '%');
+
+      var goalEl = page.querySelector('#profile-goal-chip');
+      var GOAL_NAMES = { ssc:'SSC', hssc:'HSSC', banking:'Banking', all:'सभी' };
+      if (goalEl) goalEl.textContent = GOAL_NAMES[user.examGoal] || 'SSC';
+
+      var joinedEl = page.querySelector('#profile-joined');
+      if (joinedEl && user.createdAt) {
+        joinedEl.textContent = 'सदस्य: ' + new Date(user.createdAt).toLocaleDateString('hi-IN');
+      }
+
+      // Category bars
+      var catBars = page.querySelector('#category-bars');
+      var CATEGORIES = ['math','reasoning','english','gk','science','haryana','computer','hindi','current'];
+      var CAT_NAMES = {
+        math:'गणित', reasoning:'तर्कशक्ति', english:'अंग्रेज़ी', gk:'सामान्य ज्ञान',
+        science:'विज्ञान', haryana:'हरियाणा GK', computer:'कंप्यूटर', hindi:'हिंदी', current:'करंट अफेयर्स'
+      };
+      // Analytics stores { attempted, correct, wrong } per category
+      var catStats = window.Analytics ? Analytics.getCatStats() : {};
+      if (catBars) {
+        CATEGORIES.forEach(function(cat) {
+          var raw  = catStats[cat] || {};
+          var cs   = { correct: raw.correct || 0, total: raw.attempted || 0 };
+          var cacc = cs.total > 0 ? Math.round((cs.correct / cs.total)*100) : 0;
+          var row  = document.createElement('div');
+          row.className = 'breakdown-row';
+          row.innerHTML =
+            '<div class="breakdown-label">' + CAT_NAMES[cat] + '</div>' +
+            '<div class="progress-bar breakdown-bar" role="progressbar" aria-valuenow="' + cacc + '" aria-valuemin="0" aria-valuemax="100">' +
+              '<div class="progress-fill" style="width:' + cacc + '%"></div>' +
+            '</div>' +
+            '<div class="breakdown-pct">' + (cs.total > 0 ? cacc + '%' : '—') + '</div>';
+          catBars.appendChild(row);
+        });
+      }
+
+      // Activity calendar (90 days)
+      var cal = page.querySelector('#activity-calendar');
+      if (cal) {
+        // Questions answered per local day, from the results history.
+        // Days recorded by Streak but beyond the history limit count as 1.
+        var activity = {};
+        var dayKey = function(dt) { return window.Streak ? Streak.dateStr(dt) : dt.toDateString(); };
+        if (window.Analytics) Analytics.getHistory().forEach(function(r) {
+          var k = dayKey(new Date(r.date));
+          activity[k] = (activity[k] || 0) + (r.total || 0);
+        });
+        if (window.Streak) Streak.getActivityDates().forEach(function(k) {
+          if (!activity[k]) activity[k] = 1;
+        });
+        var today = new Date();
+        for (var d = 89; d >= 0; d--) {
+          var dt   = new Date(today); dt.setDate(today.getDate() - d);
+          var key  = dayKey(dt);
+          var dot  = document.createElement('div');
+          dot.className = 'activity-dot';
+          var lvl = activity[key] ? Math.min(4, Math.ceil(activity[key] / 5)) : 0;
+          dot.setAttribute('data-level', lvl);
+          dot.setAttribute('title', key + (activity[key] ? ': ' + activity[key] + ' सवाल' : ': कोई गतिविधि नहीं'));
+          dot.setAttribute('aria-label', key);
+          cal.appendChild(dot);
+        }
+      }
+
+      // Language settings
+      var langHi = page.querySelector('#settings-lang-hi');
+      var langEn = page.querySelector('#settings-lang-en');
+      var currentLang = document.body.classList.contains('app-lang-en') ? 'en' : 'hi';
+      function updateLangBtns(lang) {
+        if (langHi) { langHi.classList.toggle('active', lang === 'hi'); langHi.setAttribute('aria-pressed', lang === 'hi' ? 'true' : 'false'); }
+        if (langEn) { langEn.classList.toggle('active', lang === 'en'); langEn.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false'); }
+      }
+      updateLangBtns(currentLang);
+      [langHi, langEn].forEach(function(btn) {
+        if (!btn) return;
+        btn.addEventListener('click', function() {
+          var lang = btn.dataset.lang;
+          document.body.classList.toggle('app-lang-hi', lang === 'hi');
+          document.body.classList.toggle('app-lang-en', lang === 'en');
+          updateLangBtns(lang);
+          if (window.I18n) I18n.setLang(lang);
+          try { var u = JSON.parse(localStorage.getItem('es_user')||'{}'); u.lang = lang; localStorage.setItem('es_user', JSON.stringify(u)); } catch(e) {}
+        });
+      });
+
+      // Reset
+      var resetBtn = page.querySelector('#reset-data-btn');
+      if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+          if (window.confirm('क्या आप सारा डेटा हटाना चाहते हैं? यह वापस नहीं होगा।')) {
+            var keysToKeep = ['es_questions', 'es_mock_tests', 'es_db_version'];
+            var keep = {};
+            keysToKeep.forEach(function(k) { try { keep[k] = localStorage.getItem(k); } catch(e) {} });
+            try { localStorage.clear(); } catch(e) {}
+            Object.keys(keep).forEach(function(k) { if (keep[k]) { try { localStorage.setItem(k, keep[k]); } catch(e) {} } });
+            if (window.App) App.navigate('#onboarding');
+            else window.location.hash = '#onboarding';
+          }
+        });
+      }
+
+      // Edit profile
+      var editBtn = page.querySelector('#profile-edit-btn');
+      if (editBtn) {
+        editBtn.addEventListener('click', function() {
+          var newName = window.prompt('नया नाम दर्ज करें:', user.name || '');
+          if (newName && newName.trim().length >= 2) {
+            user.name = newName.trim();
+            try { localStorage.setItem('es_user', JSON.stringify(user)); } catch(e) {}
+            setT('profile-name', user.name);
+            setT('profile-avatar', user.name.charAt(0).toUpperCase());
+          }
+        });
+      }
+    })();
+    </script>
+  </template>
+
+  <!-- ── LEADERBOARD ── -->
+  <template id="tpl-leaderboard">
+    <div class="page page-leaderboard" id="page-leaderboard">
+      <header class="page-header">
+        <h1 class="page-title" data-i18n="leaderboard.title">लीडरबोर्ड</h1>
+      </header>
+
+      <div class="leaderboard-note card card-padded" role="note">
+        <span aria-hidden="true">📍</span>
+        <span data-i18n="leaderboard.local_note">स्थानीय स्कोर • Live leaderboard जल्द आ रहा है</span>
+      </div>
+
+      <!-- TOP 3 PODIUM -->
+      <div class="podium-row" id="podium-row" aria-label="शीर्ष 3">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- FULL LIST -->
+      <div class="leaderboard-list" id="leaderboard-list" role="list" aria-label="लीडरबोर्ड सूची">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- YOUR RANK -->
+      <div class="your-rank-card card card-padded hidden" id="your-rank-card">
+        <span data-i18n="leaderboard.your_rank">आपकी रैंक</span>
+        <span class="your-rank-num" id="your-rank-num">#—</span>
+      </div>
+
+      <!-- EMPTY STATE -->
+      <div class="empty-state hidden" id="leaderboard-empty">
+        <div class="empty-icon" aria-hidden="true">🏆</div>
+        <p data-i18n="leaderboard.empty">अभी कोई स्कोर नहीं।<br>मॉक टेस्ट दें और यहाँ दिखें!</p>
+        <a href="#mock-test-list" class="btn btn-primary" data-i18n="leaderboard.take_test">टेस्ट दें</a>
+      </div>
+
+      <div class="coming-soon-note card card-padded">
+        <span aria-hidden="true">🌐</span>
+        <span data-i18n="leaderboard.coming_soon">ऑनलाइन लीडरबोर्ड जल्द आ रहा है।</span>
+      </div>
+
+      <div class="page-bottom-spacer"></div>
+    </div>
+
+    <script>
+    (function() {
+      var page = document.getElementById('page-leaderboard');
+      if (!page) return;
+
+      // Local leaderboard from the shared module (one entry per mock test
+      // attempt, recorded on submit). Entries from older builds that lack
+      // name/score are skipped.
+      var user = window.Auth ? (Auth.getUser() || {}) : {};
+      var esc = function(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
+          return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+        });
+      };
+      var sorted = (window.Leaderboard ? Leaderboard.getRankedList(50) : [])
+        .filter(function(e) { return e && e.name && typeof e.score === 'number'; })
+        .map(function(e) {
+          return {
+            name: esc(e.name),
+            score: e.maxScore ? e.score + '/' + e.maxScore : e.score,
+            accuracy: e.accuracy || 0,
+            testName: esc(e.testName || ''),
+            isYou: !!user.name && e.name === user.name
+          };
+        });
+
+      if (!sorted.length) {
+        page.querySelector('#leaderboard-empty').classList.remove('hidden');
+        return;
+      }
+
+      // Podium (top 3)
+      var podium = page.querySelector('#podium-row');
+      var MEDALS = ['🥇','🥈','🥉'];
+      var podiumOrder = [1, 0, 2]; // 2nd, 1st, 3rd visual order
+      if (podium && sorted.length >= 1) {
+        podiumOrder.forEach(function(rankIdx) {
+          var entry = sorted[rankIdx];
+          if (!entry) return;
+          var col = document.createElement('div');
+          col.className = 'podium-col' + (rankIdx === 0 ? ' podium-first' : '');
+          col.setAttribute('aria-label', (rankIdx+1) + '. ' + entry.name);
+          col.innerHTML =
+            '<div class="podium-medal" aria-hidden="true">' + (MEDALS[rankIdx] || '') + '</div>' +
+            '<div class="avatar podium-avatar" aria-hidden="true">' + entry.name.charAt(0).toUpperCase() + '</div>' +
+            '<div class="podium-name">' + entry.name + '</div>' +
+            '<div class="podium-score">' + entry.score + ' pts</div>' +
+            '<div class="podium-block podium-block-' + (rankIdx+1) + '" aria-hidden="true">#' + (rankIdx+1) + '</div>';
+          podium.appendChild(col);
+        });
+      }
+
+      // Full list
+      var list = page.querySelector('#leaderboard-list');
+      var yourRankCard = page.querySelector('#your-rank-card');
+      var yourRankNum  = page.querySelector('#your-rank-num');
+
+      sorted.forEach(function(entry, i) {
+        var item = document.createElement('div');
+        item.className = 'lb-item' + (entry.isYou ? ' lb-you' : '');
+        item.setAttribute('role', 'listitem');
+        item.setAttribute('aria-label', '#' + (i+1) + ' ' + entry.name);
+        item.innerHTML =
+          '<div class="lb-rank">' + (i < 3 ? MEDALS[i] : '#' + (i+1)) + '</div>' +
+          '<div class="avatar lb-avatar" aria-hidden="true">' + entry.name.charAt(0).toUpperCase() + '</div>' +
+          '<div class="lb-name">' + entry.name + (entry.isYou ? ' <span class="chip chip-you">आप</span>' : '') +
+            (entry.testName ? '<div class="lb-test">' + entry.testName + '</div>' : '') + '</div>' +
+          '<div class="lb-stats">' +
+            '<div class="lb-score">' + entry.score + ' pts</div>' +
+            '<div class="lb-acc">' + entry.accuracy + '%</div>' +
+          '</div>';
+        list.appendChild(item);
+
+        if (entry.isYou && yourRankCard) {
+          yourRankCard.classList.remove('hidden');
+          if (yourRankNum) yourRankNum.textContent = '#' + (i+1);
+        }
+      });
+    })();
+    </script>
+  </template>
+
+  <!-- ── ADMIN DISABLED ── -->
+  <template id="tpl-admin-disabled">
+    <div class="page page-admin-disabled" id="page-admin-disabled">
+      <div class="admin-disabled-inner">
+        <div class="admin-disabled-icon" aria-hidden="true">🔒</div>
+        <h1 class="admin-disabled-title" data-i18n="admin.disabled_title">एडमिन पैनल अक्षम है</h1>
+        <p class="admin-disabled-msg" data-i18n="admin.disabled_msg">
+          एडमिन पैनल वर्तमान में बंद है।<br>
+          सुरक्षा कारणों से इसे डिसेबल किया गया है।
+        </p>
+        <p class="admin-disabled-en">
+          The admin panel is currently disabled for security reasons.<br>
+          Please contact the developer to enable it.
+        </p>
+        <div class="admin-disabled-code">
+          <code>admin-auth.js → ADMIN_ENABLED = false</code>
+        </div>
+        <a href="#home" class="btn btn-primary" aria-label="होम पर जाएं" data-i18n="admin.go_home">होम पर जाएं</a>
+      </div>
+    </div>
+  </template>
+
+  <!-- ════════════════════════════════════════
+       SCRIPTS
+  ════════════════════════════════════════ -->
+  <script src="assets/js/core/storage.js"></script>
+  <script src="assets/js/core/state.js"></script>
+  <script src="assets/js/core/i18n.js"></script>
+  <script src="assets/js/modules/auth.js"></script>
+  <script src="assets/js/modules/timer.js"></script>
+  <script src="assets/js/modules/streak.js"></script>
+  <script src="assets/js/modules/bookmarks.js"></script>
+  <script src="assets/js/modules/analytics.js"></script>
+  <script src="assets/js/modules/leaderboard.js"></script>
+  <script src="assets/js/modules/premium.js"></script>
+  <script src="assets/js/modules/quiz-engine.js"></script>
+  <script src="assets/js/admin/admin-auth.js"></script>
+  <script src="assets/js/admin/question-manager.js"></script>
+  <script src="assets/js/admin/category-manager.js"></script>
+  <script src="assets/js/admin/test-manager.js"></script>
+  <script src="assets/js/admin/csv-importer.js"></script>
+  <script src="assets/js/core/question-bank.js"></script>
+<script src="assets/js/core/app.js"></script>
+
+</body>
+</html>

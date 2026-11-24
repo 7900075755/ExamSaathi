@@ -1,0 +1,133 @@
+:root {
+  /* Primary Palette */
+  --color-primary: #1A237E;
+  --color-primary-dark: #0D1257;
+  --color-primary-light: #3949AB;
+  --color-primary-50: #E8EAF6;
+  --color-primary-100: #C5CAE9;
+
+  /* Accent */
+  --color-accent: #FF6F00;
+  --color-accent-dark: #E65100;
+  --color-accent-light: #FF8F00;
+  --color-accent-50: #FFF3E0;
+
+  /* Semantic */
+  --color-success: #2E7D32;
+  --color-success-bg: #E8F5E9;
+  --color-error: #C62828;
+  --color-error-bg: #FFEBEE;
+  --color-warning: #F57F17;
+  --color-warning-bg: #FFFDE7;
+  --color-info: #0277BD;
+  --color-info-bg: #E1F5FE;
+
+  /* Neutrals */
+  --color-bg: #FFFFFF;
+  --color-surface: #F5F7FA;
+  --color-surface-2: #EEF1F6;
+  --color-border: #E0E4EC;
+  --color-border-light: #F0F2F7;
+  --color-text-primary: #1A1D2E;
+  --color-text-secondary: #5C6382;
+  --color-text-tertiary: #9BA3BE;
+  --color-text-disabled: #BFC5D6;
+  --color-text-on-primary: #FFFFFF;
+  --color-text-on-accent: #FFFFFF;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #1A237E 0%, #3949AB 100%);
+  --gradient-accent: linear-gradient(135deg, #FF6F00 0%, #FF8F00 100%);
+  --gradient-hero: linear-gradient(160deg, #1A237E 0%, #283593 60%, #3949AB 100%);
+  --gradient-success: linear-gradient(135deg, #2E7D32 0%, #43A047 100%);
+
+  /* Typography */
+  --font-latin: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-hindi: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-hindi: 1.75;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(26, 35, 126, 0.08);
+  --shadow-md: 0 4px 12px rgba(26, 35, 126, 0.10);
+  --shadow-lg: 0 8px 24px rgba(26, 35, 126, 0.14);
+  --shadow-xl: 0 16px 40px rgba(26, 35, 126, 0.18);
+  --shadow-card: 0 2px 8px rgba(26, 35, 126, 0.08), 0 1px 2px rgba(26, 35, 126, 0.04);
+  --shadow-accent: 0 4px 16px rgba(255, 111, 0, 0.30);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  --transition-spring: 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-index scale */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-top: 1000;
+
+  /* Layout */
+  --nav-height: 64px;
+  --header-height: 56px;
+  --max-width: 480px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-top: env(safe-area-inset-top, 0px);
+}
+
+/* Dark mode tokens (future) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #0F1120;
+    --color-surface: #1A1D2E;
+    --color-surface-2: #232640;
+    --color-border: #2E3250;
+    --color-text-primary: #E8EAF6;
+    --color-text-secondary: #9BA3BE;
+  }
+}

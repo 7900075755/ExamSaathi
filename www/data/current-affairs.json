@@ -1,0 +1,561 @@
+{
+  "_meta": {
+    "category": "current-affairs",
+    "version": "1.0.0",
+    "totalQuestions": 25,
+    "notice": "DEMO CONTENT — Evergreen questions only. For current year affairs, please refer to official sources and newspapers.",
+    "lastUpdated": "2026-11-24"
+  },
+  "questions": [
+    {
+      "id": "ca001",
+      "category": "current-affairs",
+      "topic": "Indian Government Schemes",
+      "lang": {
+        "en": "Which scheme provides free cooking gas connections to Below Poverty Line families?",
+        "hi": "कौन सी योजना गरीबी रेखा से नीचे परिवारों को मुफ्त रसोई गैस कनेक्शन प्रदान करती है?"
+      },
+      "options": {
+        "en": ["Pradhan Mantri Ujjwala Yojana", "Pradhan Mantri Awas Yojana", "Jan Dhan Yojana", "Swachh Bharat Mission"],
+        "hi": ["प्रधानमंत्री उज्ज्वला योजना", "प्रधानमंत्री आवास योजना", "जन धन योजना", "स्वच्छ भारत मिशन"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "Pradhan Mantri Ujjwala Yojana (PMUY) was launched in 2016 to provide free LPG connections to women from BPL households, aiming to reduce indoor pollution and improve health.",
+        "hi": "प्रधानमंत्री उज्ज्वला योजना (PMUY) 2016 में शुरू हुई, जो BPL परिवारों की महिलाओं को मुफ्त LPG कनेक्शन प्रदान करती है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "schemes"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca002",
+      "category": "current-affairs",
+      "topic": "Indian Government Schemes",
+      "lang": {
+        "en": "Pradhan Mantri Jan Dhan Yojana is related to:",
+        "hi": "प्रधानमंत्री जन धन योजना किससे संबंधित है?"
+      },
+      "options": {
+        "en": ["Free housing", "Financial inclusion and banking", "Free medical treatment", "Employment generation"],
+        "hi": ["मुफ्त आवास", "वित्तीय समावेश और बैंकिंग", "मुफ्त चिकित्सा उपचार", "रोजगार सृजन"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "Pradhan Mantri Jan Dhan Yojana (PMJDY) launched in 2014 aims at financial inclusion, providing bank accounts to the unbanked population with features like zero balance, RuPay debit card, and accidental insurance.",
+        "hi": "प्रधानमंत्री जन धन योजना (PMJDY) 2014 में शुरू हुई, जो बैंकिंग से वंचित लोगों को बैंक खाते प्रदान करती है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "schemes"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca003",
+      "category": "current-affairs",
+      "topic": "International Organizations",
+      "lang": {
+        "en": "The headquarters of the United Nations is located in:",
+        "hi": "संयुक्त राष्ट्र का मुख्यालय कहाँ स्थित है?"
+      },
+      "options": {
+        "en": ["Washington D.C.", "Geneva", "New York", "London"],
+        "hi": ["वाशिंगटन डी.सी.", "जिनेवा", "न्यूयॉर्क", "लंदन"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "The United Nations (UN) headquarters is located in New York City, USA. It was established in 1945 after World War II. The UN has 193 member states.",
+        "hi": "संयुक्त राष्ट्र (UN) का मुख्यालय न्यूयॉर्क शहर, USA में है। इसकी स्थापना 1945 में द्वितीय विश्व युद्ध के बाद हुई। UN में 193 सदस्य देश हैं।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "international"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca004",
+      "category": "current-affairs",
+      "topic": "International Organizations",
+      "lang": {
+        "en": "Which organization publishes the Human Development Index (HDI)?",
+        "hi": "मानव विकास सूचकांक (HDI) कौन सी संस्था प्रकाशित करती है?"
+      },
+      "options": {
+        "en": ["World Bank", "IMF", "UNDP", "WHO"],
+        "hi": ["विश्व बैंक", "IMF", "UNDP", "WHO"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "UNDP (United Nations Development Programme) publishes the Human Development Index (HDI) annually. HDI measures countries based on life expectancy, education, and per capita income.",
+        "hi": "UNDP (United Nations Development Programme) प्रतिवर्ष मानव विकास सूचकांक (HDI) प्रकाशित करता है। HDI जीवन प्रत्याशा, शिक्षा और प्रति व्यक्ति आय के आधार पर देशों को मापता है।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "international"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca005",
+      "category": "current-affairs",
+      "topic": "Awards and Honours",
+      "lang": {
+        "en": "Bharat Ratna is India's highest:",
+        "hi": "भारत रत्न भारत का सर्वोच्च है:"
+      },
+      "options": {
+        "en": ["Military honour", "Civilian honour", "Sports award", "Literary award"],
+        "hi": ["सैन्य सम्मान", "नागरिक सम्मान", "खेल पुरस्कार", "साहित्यिक पुरस्कार"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "Bharat Ratna is India's highest civilian honour, awarded for exceptional service towards the advancement of Art, Literature and Science, and in recognition of Public Service of the highest order.",
+        "hi": "भारत रत्न भारत का सर्वोच्च नागरिक सम्मान है, जो कला, साहित्य, विज्ञान और सर्वोच्च कोटि की सार्वजनिक सेवा के लिए दिया जाता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "awards"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca006",
+      "category": "current-affairs",
+      "topic": "Sports",
+      "lang": {
+        "en": "How many players are there in a Cricket team?",
+        "hi": "क्रिकेट टीम में कितने खिलाड़ी होते हैं?"
+      },
+      "options": {
+        "en": ["9", "10", "11", "12"],
+        "hi": ["9", "10", "11", "12"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "A Cricket team has 11 players. India's national cricket team is managed by BCCI (Board of Control for Cricket in India). ICC (International Cricket Council) governs international cricket.",
+        "hi": "क्रिकेट टीम में 11 खिलाड़ी होते हैं। भारतीय राष्ट्रीय क्रिकेट टीम का प्रबंधन BCCI (Board of Control for Cricket in India) करती है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "sports"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca007",
+      "category": "current-affairs",
+      "topic": "Indian Economy",
+      "lang": {
+        "en": "RBI stands for:",
+        "hi": "RBI का पूर्ण रूप है:"
+      },
+      "options": {
+        "en": ["Reserve Bank of India", "Royal Bank of India", "Rural Bank of India", "Regulated Bank of India"],
+        "hi": ["रिजर्व बैंक ऑफ इंडिया", "रॉयल बैंक ऑफ इंडिया", "रूरल बैंक ऑफ इंडिया", "रेगुलेटेड बैंक ऑफ इंडिया"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "RBI stands for Reserve Bank of India. It is India's central bank and monetary authority, established in 1935. It regulates banking, issues currency, and manages monetary policy.",
+        "hi": "RBI का पूर्ण रूप Reserve Bank of India है। यह भारत का केंद्रीय बैंक है, जिसकी स्थापना 1935 में हुई। यह बैंकिंग का नियमन, मुद्रा जारी करना और मौद्रिक नीति प्रबंधन करता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "economy"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca008",
+      "category": "current-affairs",
+      "topic": "Indian Government Schemes",
+      "lang": {
+        "en": "Swachh Bharat Mission was launched to achieve:",
+        "hi": "स्वच्छ भारत मिशन किस उद्देश्य से शुरू किया गया था?"
+      },
+      "options": {
+        "en": ["Free education", "Open defecation free India", "Free healthcare", "Digital India"],
+        "hi": ["मुफ्त शिक्षा", "खुले में शौच मुक्त भारत", "मुफ्त स्वास्थ्य सेवा", "डिजिटल इंडिया"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "Swachh Bharat Mission was launched on October 2, 2014 (Gandhi Jayanti) to make India Open Defecation Free (ODF) and to improve cleanliness across the country.",
+        "hi": "स्वच्छ भारत मिशन 2 अक्टूबर 2014 (गांधी जयंती) को भारत को खुले में शौच मुक्त (ODF) बनाने और देशभर में स्वच्छता सुधारने के लिए शुरू किया गया।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "schemes"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca009",
+      "category": "current-affairs",
+      "topic": "Space and Technology",
+      "lang": {
+        "en": "ISRO stands for:",
+        "hi": "ISRO का पूर्ण रूप है:"
+      },
+      "options": {
+        "en": ["Indian Space Research Organisation", "Indian Scientific Research Organisation", "International Space Research Organisation", "Indian Space Rocket Organisation"],
+        "hi": ["इंडियन स्पेस रिसर्च ऑर्गेनाइजेशन", "इंडियन साइंटिफिक रिसर्च ऑर्गेनाइजेशन", "इंटरनेशनल स्पेस रिसर्च ऑर्गेनाइजेशन", "इंडियन स्पेस रॉकेट ऑर्गेनाइजेशन"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "ISRO stands for Indian Space Research Organisation, established in 1969. It is headquartered in Bengaluru. ISRO has successfully launched missions like Chandrayaan, Mangalyaan, and PSLV.",
+        "hi": "ISRO का पूर्ण रूप Indian Space Research Organisation है, जिसकी स्थापना 1969 में हुई। इसका मुख्यालय बेंगलुरु में है। ISRO ने चंद्रयान, मंगलयान जैसे मिशन सफलतापूर्वक लॉन्च किए हैं।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "science-tech"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca010",
+      "category": "current-affairs",
+      "topic": "Indian Government Schemes",
+      "lang": {
+        "en": "Ayushman Bharat scheme provides health insurance of how much per family per year?",
+        "hi": "आयुष्मान भारत योजना प्रति परिवार प्रतिवर्ष कितना स्वास्थ्य बीमा प्रदान करती है?"
+      },
+      "options": {
+        "en": ["₹2 lakh", "₹3 lakh", "₹5 lakh", "₹10 lakh"],
+        "hi": ["₹2 लाख", "₹3 लाख", "₹5 लाख", "₹10 लाख"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "Ayushman Bharat - Pradhan Mantri Jan Arogya Yojana (AB-PMJAY) provides health insurance coverage of ₹5 lakh per family per year for secondary and tertiary hospitalization.",
+        "hi": "आयुष्मान भारत - प्रधानमंत्री जन आरोग्य योजना (AB-PMJAY) द्वितीयक और तृतीयक अस्पताल भर्ती के लिए प्रति परिवार प्रतिवर्ष ₹5 लाख का स्वास्थ्य बीमा प्रदान करती है।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "schemes"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca011",
+      "category": "current-affairs",
+      "topic": "International Organizations",
+      "lang": {
+        "en": "World Health Organization (WHO) is headquartered in:",
+        "hi": "विश्व स्वास्थ्य संगठन (WHO) का मुख्यालय कहाँ है?"
+      },
+      "options": {
+        "en": ["New York", "Washington D.C.", "Geneva", "Paris"],
+        "hi": ["न्यूयॉर्क", "वाशिंगटन डी.सी.", "जिनेवा", "पेरिस"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "WHO (World Health Organization) is headquartered in Geneva, Switzerland. It was established in 1948 and is a specialized agency of the United Nations responsible for international public health.",
+        "hi": "WHO (विश्व स्वास्थ्य संगठन) का मुख्यालय जिनेवा, स्विट्जरलैंड में है। इसकी स्थापना 1948 में हुई और यह संयुक्त राष्ट्र की एक विशेष संस्था है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "international"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca012",
+      "category": "current-affairs",
+      "topic": "Indian Economy",
+      "lang": {
+        "en": "GST stands for:",
+        "hi": "GST का पूर्ण रूप है:"
+      },
+      "options": {
+        "en": ["General Sales Tax", "Goods and Services Tax", "Government Service Tax", "Gross Sales Tax"],
+        "hi": ["जनरल सेल्स टैक्स", "गुड्स एंड सर्विसेज टैक्स", "गवर्नमेंट सर्विस टैक्स", "ग्रॉस सेल्स टैक्स"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "GST stands for Goods and Services Tax. It was implemented in India on July 1, 2017, replacing multiple indirect taxes. It is a comprehensive destination-based tax on goods and services.",
+        "hi": "GST का पूर्ण रूप Goods and Services Tax है। इसे 1 जुलाई 2017 को भारत में लागू किया गया, जिसने कई अप्रत्यक्ष करों को प्रतिस्थापित किया।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "economy"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca013",
+      "category": "current-affairs",
+      "topic": "Sports",
+      "lang": {
+        "en": "The Olympic Games are held every how many years?",
+        "hi": "ओलंपिक खेल कितने वर्षों में एक बार आयोजित होते हैं?"
+      },
+      "options": {
+        "en": ["2 years", "3 years", "4 years", "5 years"],
+        "hi": ["2 वर्ष", "3 वर्ष", "4 वर्ष", "5 वर्ष"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "The Olympic Games are held every 4 years. The Summer Olympics and Winter Olympics each occur every 4 years, but are staggered 2 years apart. The International Olympic Committee (IOC) governs the Games.",
+        "hi": "ओलंपिक खेल प्रत्येक 4 वर्षों में आयोजित होते हैं। ग्रीष्मकालीन और शीतकालीन ओलंपिक दोनों 4 वर्षों में एक बार होते हैं, लेकिन 2 वर्षों के अंतराल पर।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "sports"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca014",
+      "category": "current-affairs",
+      "topic": "Environment",
+      "lang": {
+        "en": "World Environment Day is celebrated on:",
+        "hi": "विश्व पर्यावरण दिवस कब मनाया जाता है?"
+      },
+      "options": {
+        "en": ["April 22", "June 5", "July 11", "September 16"],
+        "hi": ["22 अप्रैल", "5 जून", "11 जुलाई", "16 सितंबर"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "World Environment Day is celebrated on June 5 every year. It was established by the UN in 1972 to raise awareness about environmental issues. April 22 is Earth Day.",
+        "hi": "विश्व पर्यावरण दिवस प्रत्येक वर्ष 5 जून को मनाया जाता है। इसे 1972 में UN ने स्थापित किया। 22 अप्रैल पृथ्वी दिवस है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "environment"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca015",
+      "category": "current-affairs",
+      "topic": "Indian Government Schemes",
+      "lang": {
+        "en": "Make in India initiative was launched to promote:",
+        "hi": "मेक इन इंडिया पहल किस उद्देश्य से शुरू की गई?"
+      },
+      "options": {
+        "en": ["Tourism", "Manufacturing sector", "Agriculture", "Education"],
+        "hi": ["पर्यटन", "विनिर्माण क्षेत्र", "कृषि", "शिक्षा"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "Make in India was launched on September 25, 2014 to encourage companies to manufacture their products in India and boost India's manufacturing sector, create jobs, and attract foreign investment.",
+        "hi": "मेक इन इंडिया 25 सितंबर 2014 को शुरू हुई, जो कंपनियों को भारत में उत्पाद बनाने, रोजगार सृजन और विदेशी निवेश आकर्षित करने के लिए प्रोत्साहित करती है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "schemes"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca016",
+      "category": "current-affairs",
+      "topic": "Important Days",
+      "lang": {
+        "en": "National Youth Day in India is celebrated on:",
+        "hi": "भारत में राष्ट्रीय युवा दिवस कब मनाया जाता है?"
+      },
+      "options": {
+        "en": ["January 12", "January 26", "July 15", "August 15"],
+        "hi": ["12 जनवरी", "26 जनवरी", "15 जुलाई", "15 अगस्त"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "National Youth Day is celebrated on January 12, the birthday of Swami Vivekananda. The government declared it in 1984. The day aims to inspire youth with Vivekananda's ideas and ideals.",
+        "hi": "राष्ट्रीय युवा दिवस 12 जनवरी को स्वामी विवेकानंद की जयंती पर मनाया जाता है। सरकार ने 1984 में इसे घोषित किया।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "important-days"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca017",
+      "category": "current-affairs",
+      "topic": "Indian Economy",
+      "lang": {
+        "en": "India's Planning Commission was replaced by which body?",
+        "hi": "भारत के योजना आयोग को किस संस्था से बदला गया?"
+      },
+      "options": {
+        "en": ["Finance Commission", "NITI Aayog", "Economic Advisory Council", "CBI"],
+        "hi": ["वित्त आयोग", "नीति आयोग", "आर्थिक सलाहकार परिषद", "CBI"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "NITI Aayog (National Institution for Transforming India) replaced the Planning Commission on January 1, 2015. It serves as the government's principal policy think tank.",
+        "hi": "NITI Aayog (National Institution for Transforming India) ने 1 जनवरी 2015 को योजना आयोग की जगह ली। यह सरकार का प्रमुख नीति थिंक टैंक है।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "economy"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca018",
+      "category": "current-affairs",
+      "topic": "Space and Technology",
+      "lang": {
+        "en": "Chandrayaan-3 successfully landed on the Moon's south pole in which year?",
+        "hi": "चंद्रयान-3 ने किस वर्ष चंद्रमा के दक्षिणी ध्रुव पर सफलतापूर्वक लैंडिंग की?"
+      },
+      "options": {
+        "en": ["2021", "2022", "2023", "2024"],
+        "hi": ["2021", "2022", "2023", "2024"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "Chandrayaan-3 successfully landed on the Moon's south pole on August 23, 2023, making India the first country to achieve this. It was launched by ISRO on July 14, 2023.",
+        "hi": "चंद्रयान-3 ने 23 अगस्त 2023 को चंद्रमा के दक्षिणी ध्रुव पर सफलतापूर्वक लैंडिंग की, जिससे भारत ऐसा करने वाला पहला देश बना। इसे ISRO ने 14 जुलाई 2023 को लॉन्च किया था।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "science-tech"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca019",
+      "category": "current-affairs",
+      "topic": "Important Days",
+      "lang": {
+        "en": "World Teachers' Day is observed on:",
+        "hi": "विश्व शिक्षक दिवस कब मनाया जाता है?"
+      },
+      "options": {
+        "en": ["September 5", "October 5", "November 5", "December 5"],
+        "hi": ["5 सितंबर", "5 अक्टूबर", "5 नवंबर", "5 दिसंबर"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "World Teachers' Day is observed on October 5. India celebrates its National Teachers' Day on September 5, the birthday of Dr. Sarvepalli Radhakrishnan.",
+        "hi": "विश्व शिक्षक दिवस 5 अक्टूबर को मनाया जाता है। भारत अपना राष्ट्रीय शिक्षक दिवस 5 सितंबर को डॉ. सर्वपल्ली राधाकृष्णन की जयंती पर मनाता है।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "important-days"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca020",
+      "category": "current-affairs",
+      "topic": "Awards and Honours",
+      "lang": {
+        "en": "Nobel Prize in Peace is awarded in which city?",
+        "hi": "नोबेल शांति पुरस्कार किस शहर में दिया जाता है?"
+      },
+      "options": {
+        "en": ["Stockholm", "Oslo", "Copenhagen", "Helsinki"],
+        "hi": ["स्टॉकहोम", "ओस्लो", "कोपेनहेगन", "हेलसिंकी"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "The Nobel Peace Prize is awarded in Oslo, Norway, while all other Nobel Prizes (Physics, Chemistry, Medicine, Literature, Economics) are awarded in Stockholm, Sweden.",
+        "hi": "नोबेल शांति पुरस्कार ओस्लो, नॉर्वे में दिया जाता है, जबकि अन्य सभी नोबेल पुरस्कार (भौतिकी, रसायन, चिकित्सा, साहित्य, अर्थशास्त्र) स्टॉकहोम, स्वीडन में दिए जाते हैं।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "awards"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca021",
+      "category": "current-affairs",
+      "topic": "Indian Economy",
+      "lang": {
+        "en": "UPI (Unified Payment Interface) was developed by which organisation?",
+        "hi": "UPI (यूनिफाइड पेमेंट इंटरफेस) को किस संगठन ने विकसित किया?"
+      },
+      "options": {
+        "en": ["RBI", "NPCI", "SBI", "SEBI"],
+        "hi": ["RBI", "NPCI", "SBI", "SEBI"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "UPI (Unified Payments Interface) was developed by NPCI (National Payments Corporation of India). It was launched in 2016 and allows instant real-time bank transfers using mobile phones.",
+        "hi": "UPI (यूनिफाइड पेमेंट इंटरफेस) को NPCI (National Payments Corporation of India) ने विकसित किया। इसे 2016 में लॉन्च किया गया।"
+      },
+      "difficulty": "medium",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "economy"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca022",
+      "category": "current-affairs",
+      "topic": "International Organizations",
+      "lang": {
+        "en": "Which organization's main purpose is international monetary cooperation?",
+        "hi": "किस संगठन का मुख्य उद्देश्य अंतर्राष्ट्रीय मौद्रिक सहयोग है?"
+      },
+      "options": {
+        "en": ["World Bank", "IMF", "WTO", "UNDP"],
+        "hi": ["विश्व बैंक", "IMF", "WTO", "UNDP"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "IMF (International Monetary Fund) promotes international monetary cooperation, exchange stability, and orderly exchange arrangements. It is headquartered in Washington, D.C., USA.",
+        "hi": "IMF (International Monetary Fund) अंतर्राष्ट्रीय मौद्रिक सहयोग, विनिमय स्थिरता को बढ़ावा देता है। इसका मुख्यालय वाशिंगटन, D.C., USA में है।"
+      },
+      "difficulty": "medium",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "international"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca023",
+      "category": "current-affairs",
+      "topic": "Indian Government Schemes",
+      "lang": {
+        "en": "PM KISAN scheme provides financial benefit to farmers of:",
+        "hi": "PM KISAN योजना किसानों को कितनी वित्तीय सहायता प्रदान करती है?"
+      },
+      "options": {
+        "en": ["₹2,000 per year", "₹4,000 per year", "₹6,000 per year", "₹10,000 per year"],
+        "hi": ["₹2,000 प्रतिवर्ष", "₹4,000 प्रतिवर्ष", "₹6,000 प्रतिवर्ष", "₹10,000 प्रतिवर्ष"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "PM-KISAN (Pradhan Mantri Kisan Samman Nidhi) provides ₹6,000 per year to small and marginal farmers, paid in three equal installments of ₹2,000 every 4 months directly to their bank accounts.",
+        "hi": "PM-KISAN (प्रधानमंत्री किसान सम्मान निधि) छोटे और सीमांत किसानों को ₹6,000 प्रतिवर्ष प्रदान करती है, जो ₹2,000 की तीन किस्तों में सीधे बैंक खाते में जाता है।"
+      },
+      "difficulty": "medium",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "schemes"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca024",
+      "category": "current-affairs",
+      "topic": "Space and Technology",
+      "lang": {
+        "en": "India's first moon mission was:",
+        "hi": "भारत का पहला चंद्र मिशन था:"
+      },
+      "options": {
+        "en": ["Chandrayaan-1", "Chandrayaan-2", "Mangalyaan", "Aditya-L1"],
+        "hi": ["चंद्रयान-1", "चंद्रयान-2", "मंगलयान", "आदित्य-L1"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "Chandrayaan-1 was India's first lunar probe mission launched on October 22, 2008 by ISRO. It discovered water molecules on the Moon's surface, a significant scientific achievement.",
+        "hi": "चंद्रयान-1 भारत का पहला चंद्र अन्वेषण मिशन था, जिसे 22 अक्टूबर 2008 को ISRO ने लॉन्च किया। इसने चंद्रमा की सतह पर पानी के अणु खोजे।"
+      },
+      "difficulty": "easy",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "science-tech"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ca025",
+      "category": "current-affairs",
+      "topic": "Important Days",
+      "lang": {
+        "en": "India's Independence Day is celebrated on:",
+        "hi": "भारत का स्वतंत्रता दिवस कब मनाया जाता है?"
+      },
+      "options": {
+        "en": ["January 26", "August 15", "October 2", "November 14"],
+        "hi": ["26 जनवरी", "15 अगस्त", "2 अक्टूबर", "14 नवंबर"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "India's Independence Day is celebrated on August 15, the day India gained independence from British rule in 1947. January 26 is Republic Day, October 2 is Gandhi Jayanti.",
+        "hi": "भारत का स्वतंत्रता दिवस 15 अगस्त को मनाया जाता है, जिस दिन 1947 में भारत को ब्रिटिश शासन से स्वतंत्रता मिली। 26 जनवरी गणतंत्र दिवस है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "important-days"],
+      "addedOn": "2026-11-24"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "appId": "com.examsaathi.app",
+  "appName": "ExamSaathi",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 500,
+      "launchAutoHide": true,
+      "backgroundColor": "#1A237E",
+      "androidSplashResourceName": "splash",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#1A237E",
+      "overlaysWebView": false
+    }
+  },
+  "android": {
+    "allowMixedContent": false,
+    "minWebViewVersion": 60
+  }
+}

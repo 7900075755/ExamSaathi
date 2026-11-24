@@ -1,0 +1,671 @@
+{
+  "_meta": {
+    "category": "computer-knowledge",
+    "version": "1.0.0",
+    "totalQuestions": 30,
+    "notice": "DEMO CONTENT — Not official previous-year papers. For practice only.",
+    "lastUpdated": "2026-11-24"
+  },
+  "questions": [
+    {
+      "id": "ck001",
+      "category": "computer-knowledge",
+      "topic": "Computer Basics",
+      "lang": {
+        "en": "Who is known as the 'Father of Computer'?",
+        "hi": "'कंप्यूटर के जनक' के रूप में कौन जाना जाता है?"
+      },
+      "options": {
+        "en": ["Charles Babbage", "Bill Gates", "Alan Turing", "John von Neumann"],
+        "hi": ["चार्ल्स बैबेज", "बिल गेट्स", "एलन ट्यूरिंग", "जॉन वॉन न्यूमैन"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "Charles Babbage is known as the 'Father of Computer'. He designed the Analytical Engine in the 19th century, which is considered the first mechanical general-purpose computer.",
+        "hi": "चार्ल्स बैबेज को 'कंप्यूटर के जनक' के रूप में जाना जाता है। उन्होंने 19वीं सदी में एनालिटिकल इंजन डिजाइन किया, जिसे पहला यांत्रिक सामान्य-उद्देश्य कंप्यूटर माना जाता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "basics"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck002",
+      "category": "computer-knowledge",
+      "topic": "Computer Basics",
+      "lang": {
+        "en": "What does CPU stand for?",
+        "hi": "CPU का पूर्ण रूप क्या है?"
+      },
+      "options": {
+        "en": ["Central Processing Unit", "Central Program Unit", "Computer Processing Unit", "Core Processing Unit"],
+        "hi": ["सेंट्रल प्रोसेसिंग यूनिट", "सेंट्रल प्रोग्राम यूनिट", "कंप्यूटर प्रोसेसिंग यूनिट", "कोर प्रोसेसिंग यूनिट"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "CPU stands for Central Processing Unit. It is the primary component of a computer that performs most of the processing, often called the 'brain' of the computer.",
+        "hi": "CPU का पूर्ण रूप Central Processing Unit है। यह कंप्यूटर का प्राथमिक घटक है जो अधिकांश प्रसंस्करण करता है, इसे अक्सर कंप्यूटर का 'मस्तिष्क' कहा जाता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "hardware"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck003",
+      "category": "computer-knowledge",
+      "topic": "Memory",
+      "lang": {
+        "en": "RAM stands for:",
+        "hi": "RAM का पूर्ण रूप है:"
+      },
+      "options": {
+        "en": ["Random Access Memory", "Read Access Memory", "Rapid Access Memory", "Remote Access Memory"],
+        "hi": ["रैंडम एक्सेस मेमोरी", "रीड एक्सेस मेमोरी", "रैपिड एक्सेस मेमोरी", "रिमोट एक्सेस मेमोरी"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "RAM stands for Random Access Memory. It is a type of volatile memory that temporarily stores data and programs that the CPU is currently using. Data is lost when power is turned off.",
+        "hi": "RAM का पूर्ण रूप Random Access Memory है। यह एक प्रकार की अस्थायी मेमोरी है जो CPU द्वारा वर्तमान में उपयोग किए जा रहे डेटा और प्रोग्राम को संग्रहीत करती है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "memory"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck004",
+      "category": "computer-knowledge",
+      "topic": "Memory",
+      "lang": {
+        "en": "Which memory is non-volatile?",
+        "hi": "कौन सी मेमोरी नॉन-वोलेटाइल है?"
+      },
+      "options": {
+        "en": ["RAM", "Cache Memory", "ROM", "Register"],
+        "hi": ["RAM", "कैश मेमोरी", "ROM", "रजिस्टर"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "ROM (Read Only Memory) is non-volatile memory, meaning data is retained even when power is off. RAM is volatile and loses data when power is off.",
+        "hi": "ROM (Read Only Memory) नॉन-वोलेटाइल मेमोरी है, अर्थात बिजली बंद होने पर भी डेटा सुरक्षित रहता है। RAM वोलेटाइल है और बिजली बंद होने पर डेटा खो जाता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "memory"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck005",
+      "category": "computer-knowledge",
+      "topic": "Number System",
+      "lang": {
+        "en": "What is the binary equivalent of decimal number 10?",
+        "hi": "दशमलव संख्या 10 का बाइनरी समतुल्य क्या है?"
+      },
+      "options": {
+        "en": ["1010", "1100", "1001", "1110"],
+        "hi": ["1010", "1100", "1001", "1110"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "10 in binary: 10 ÷ 2 = 5 R 0, 5 ÷ 2 = 2 R 1, 2 ÷ 2 = 1 R 0, 1 ÷ 2 = 0 R 1. Reading remainders from bottom: 1010.",
+        "hi": "10 का बाइनरी: 10 ÷ 2 = 5 शेष 0, 5 ÷ 2 = 2 शेष 1, 2 ÷ 2 = 1 शेष 0, 1 ÷ 2 = 0 शेष 1। नीचे से पढ़ने पर: 1010।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "number-system"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck006",
+      "category": "computer-knowledge",
+      "topic": "Operating System",
+      "lang": {
+        "en": "Which of the following is NOT an operating system?",
+        "hi": "निम्नलिखित में से कौन सा ऑपरेटिंग सिस्टम नहीं है?"
+      },
+      "options": {
+        "en": ["Windows", "Linux", "Oracle", "Android"],
+        "hi": ["विंडोज़", "लिनक्स", "ओरेकल", "एंड्रॉइड"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "Oracle is a database management system (DBMS), not an operating system. Windows, Linux, and Android are all operating systems.",
+        "hi": "Oracle एक डेटाबेस प्रबंधन प्रणाली (DBMS) है, ऑपरेटिंग सिस्टम नहीं। Windows, Linux और Android सभी ऑपरेटिंग सिस्टम हैं।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "os"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck007",
+      "category": "computer-knowledge",
+      "topic": "MS Word",
+      "lang": {
+        "en": "What is the shortcut key to Save a document in MS Word?",
+        "hi": "MS Word में दस्तावेज़ Save करने की शॉर्टकट की क्या है?"
+      },
+      "options": {
+        "en": ["Ctrl + S", "Ctrl + A", "Ctrl + P", "Ctrl + D"],
+        "hi": ["Ctrl + S", "Ctrl + A", "Ctrl + P", "Ctrl + D"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "Ctrl + S is the shortcut to Save a document in MS Word and most other applications. Ctrl + A selects all, Ctrl + P prints, Ctrl + D changes font.",
+        "hi": "MS Word और अधिकांश एप्लिकेशन में दस्तावेज़ Save करने की शॉर्टकट Ctrl + S है। Ctrl + A सब कुछ चुनता है, Ctrl + P प्रिंट करता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "ms-office"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck008",
+      "category": "computer-knowledge",
+      "topic": "MS Word",
+      "lang": {
+        "en": "The file extension of MS Word 2007 and later is:",
+        "hi": "MS Word 2007 और बाद के संस्करण का फ़ाइल एक्सटेंशन है:"
+      },
+      "options": {
+        "en": [".doc", ".docx", ".txt", ".xls"],
+        "hi": [".doc", ".docx", ".txt", ".xls"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": ".docx is the file extension for MS Word 2007 and later versions. The older .doc format was used in MS Word 97-2003. .xls is for Excel, .txt for plain text.",
+        "hi": ".docx MS Word 2007 और बाद के संस्करणों का फ़ाइल एक्सटेंशन है। पुराना .doc प्रारूप MS Word 97-2003 में उपयोग किया जाता था।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "ms-office"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck009",
+      "category": "computer-knowledge",
+      "topic": "MS Excel",
+      "lang": {
+        "en": "Which function is used to find the maximum value in MS Excel?",
+        "hi": "MS Excel में अधिकतम मान खोजने के लिए कौन सा फ़ंक्शन उपयोग किया जाता है?"
+      },
+      "options": {
+        "en": ["MAX()", "MAXIMUM()", "HIGH()", "TOP()"],
+        "hi": ["MAX()", "MAXIMUM()", "HIGH()", "TOP()"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "MAX() function is used to find the maximum value in a range in MS Excel. For example, =MAX(A1:A10) returns the largest number in cells A1 to A10.",
+        "hi": "MS Excel में किसी रेंज में अधिकतम मान खोजने के लिए MAX() फ़ंक्शन उपयोग किया जाता है। उदाहरण: =MAX(A1:A10)।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "ms-office"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck010",
+      "category": "computer-knowledge",
+      "topic": "MS Excel",
+      "lang": {
+        "en": "The file extension of MS Excel is:",
+        "hi": "MS Excel का फ़ाइल एक्सटेंशन है:"
+      },
+      "options": {
+        "en": [".doc", ".ppt", ".xlsx", ".pdf"],
+        "hi": [".doc", ".ppt", ".xlsx", ".pdf"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": ".xlsx is the file extension for MS Excel 2007 and later. The older format was .xls. .doc is Word, .ppt is PowerPoint, .pdf is Portable Document Format.",
+        "hi": ".xlsx MS Excel 2007 और बाद के संस्करण का फ़ाइल एक्सटेंशन है। पुराना प्रारूप .xls था।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "ms-office"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck011",
+      "category": "computer-knowledge",
+      "topic": "MS PowerPoint",
+      "lang": {
+        "en": "Which shortcut key starts the Slide Show from the beginning in PowerPoint?",
+        "hi": "PowerPoint में शुरुआत से Slide Show चलाने की शॉर्टकट की क्या है?"
+      },
+      "options": {
+        "en": ["F5", "F6", "F7", "F8"],
+        "hi": ["F5", "F6", "F7", "F8"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "F5 starts the Slide Show from the beginning in MS PowerPoint. Shift + F5 starts from the current slide. F7 is used for spell check in MS Office applications.",
+        "hi": "MS PowerPoint में F5 शुरुआत से Slide Show चलाता है। Shift + F5 वर्तमान स्लाइड से शुरू करता है। F7 स्पेल चेक के लिए है।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "ms-office"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck012",
+      "category": "computer-knowledge",
+      "topic": "Internet",
+      "lang": {
+        "en": "What does HTTP stand for?",
+        "hi": "HTTP का पूर्ण रूप क्या है?"
+      },
+      "options": {
+        "en": ["HyperText Transfer Protocol", "High Text Transfer Protocol", "HyperText Transit Protocol", "High Transfer Text Protocol"],
+        "hi": ["हाइपरटेक्स्ट ट्रांसफर प्रोटोकॉल", "हाई टेक्स्ट ट्रांसफर प्रोटोकॉल", "हाइपरटेक्स्ट ट्रांजिट प्रोटोकॉल", "हाई ट्रांसफर टेक्स्ट प्रोटोकॉल"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "HTTP stands for HyperText Transfer Protocol. It is the foundation of data communication on the World Wide Web. HTTPS is the secure version with SSL/TLS encryption.",
+        "hi": "HTTP का पूर्ण रूप HyperText Transfer Protocol है। यह वर्ल्ड वाइड वेब पर डेटा संचार का आधार है। HTTPS इसका सुरक्षित संस्करण है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "internet"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck013",
+      "category": "computer-knowledge",
+      "topic": "Internet",
+      "lang": {
+        "en": "What does WWW stand for?",
+        "hi": "WWW का पूर्ण रूप क्या है?"
+      },
+      "options": {
+        "en": ["World Wide Web", "World Web Wide", "Wide World Web", "Web World Wide"],
+        "hi": ["वर्ल्ड वाइड वेब", "वर्ल्ड वेब वाइड", "वाइड वर्ल्ड वेब", "वेब वर्ल्ड वाइड"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "WWW stands for World Wide Web. It is an information system where documents and resources are identified by URLs and accessed via the internet. It was invented by Tim Berners-Lee in 1989.",
+        "hi": "WWW का पूर्ण रूप World Wide Web है। यह एक सूचना प्रणाली है जहाँ दस्तावेज़ और संसाधन URL द्वारा पहचाने जाते हैं। इसका आविष्कार 1989 में Tim Berners-Lee ने किया।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "internet"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck014",
+      "category": "computer-knowledge",
+      "topic": "Internet",
+      "lang": {
+        "en": "Which of the following is a web browser?",
+        "hi": "निम्नलिखित में से कौन सा वेब ब्राउज़र है?"
+      },
+      "options": {
+        "en": ["MS Word", "Google Chrome", "MS Excel", "MS Access"],
+        "hi": ["MS Word", "गूगल क्रोम", "MS Excel", "MS Access"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "Google Chrome is a web browser used to access websites on the internet. Other popular browsers include Mozilla Firefox, Microsoft Edge, and Safari. MS Word, Excel, and Access are office applications.",
+        "hi": "Google Chrome एक वेब ब्राउज़र है जिसका उपयोग इंटरनेट पर वेबसाइट एक्सेस करने के लिए किया जाता है। अन्य ब्राउज़र: Firefox, Microsoft Edge, Safari।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "internet"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck015",
+      "category": "computer-knowledge",
+      "topic": "Hardware",
+      "lang": {
+        "en": "Which device is used to display output from a computer?",
+        "hi": "कंप्यूटर से आउटपुट प्रदर्शित करने के लिए कौन सा उपकरण उपयोग किया जाता है?"
+      },
+      "options": {
+        "en": ["Keyboard", "Mouse", "Monitor", "Scanner"],
+        "hi": ["कीबोर्ड", "माउस", "मॉनिटर", "स्कैनर"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "Monitor is an output device that displays visual information from the computer. Keyboard and Mouse are input devices. Scanner is also an input device used to digitize documents.",
+        "hi": "Monitor एक आउटपुट डिवाइस है जो कंप्यूटर से दृश्य जानकारी प्रदर्शित करता है। Keyboard और Mouse इनपुट डिवाइस हैं।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "hardware"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck016",
+      "category": "computer-knowledge",
+      "topic": "Hardware",
+      "lang": {
+        "en": "What is the full form of USB?",
+        "hi": "USB का पूर्ण रूप क्या है?"
+      },
+      "options": {
+        "en": ["Universal Serial Bus", "Universal System Bus", "Unified Serial Bus", "Universal Storage Bus"],
+        "hi": ["यूनिवर्सल सीरियल बस", "यूनिवर्सल सिस्टम बस", "यूनिफाइड सीरियल बस", "यूनिवर्सल स्टोरेज बस"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "USB stands for Universal Serial Bus. It is a standard interface for connecting peripherals like keyboards, mice, printers, and storage devices to computers.",
+        "hi": "USB का पूर्ण रूप Universal Serial Bus है। यह keyboards, mice, printers और storage devices जैसे peripherals को कंप्यूटर से जोड़ने का मानक इंटरफेस है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "hardware"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck017",
+      "category": "computer-knowledge",
+      "topic": "Software",
+      "lang": {
+        "en": "Which of the following is system software?",
+        "hi": "निम्नलिखित में से कौन सा सिस्टम सॉफ्टवेयर है?"
+      },
+      "options": {
+        "en": ["MS Word", "Adobe Photoshop", "Windows 10", "VLC Media Player"],
+        "hi": ["MS Word", "Adobe Photoshop", "Windows 10", "VLC Media Player"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "Windows 10 is system software (Operating System). MS Word, Adobe Photoshop, and VLC Media Player are application software. System software manages hardware and provides a platform for application software.",
+        "hi": "Windows 10 सिस्टम सॉफ्टवेयर (ऑपरेटिंग सिस्टम) है। MS Word, Adobe Photoshop और VLC Media Player एप्लिकेशन सॉफ्टवेयर हैं।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "software"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck018",
+      "category": "computer-knowledge",
+      "topic": "Number System",
+      "lang": {
+        "en": "1 Byte is equal to how many bits?",
+        "hi": "1 Byte कितने bits के बराबर होता है?"
+      },
+      "options": {
+        "en": ["4 bits", "8 bits", "16 bits", "32 bits"],
+        "hi": ["4 बिट्स", "8 बिट्स", "16 बिट्स", "32 बिट्स"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "1 Byte = 8 bits. Memory hierarchy: 1 Nibble = 4 bits, 1 Byte = 8 bits, 1 KB = 1024 Bytes, 1 MB = 1024 KB, 1 GB = 1024 MB, 1 TB = 1024 GB.",
+        "hi": "1 Byte = 8 bits। मेमोरी क्रम: 1 Nibble = 4 bits, 1 Byte = 8 bits, 1 KB = 1024 Bytes, 1 MB = 1024 KB, 1 GB = 1024 MB।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "number-system"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck019",
+      "category": "computer-knowledge",
+      "topic": "Internet",
+      "lang": {
+        "en": "Email was invented by:",
+        "hi": "ईमेल का आविष्कार किसने किया?"
+      },
+      "options": {
+        "en": ["Bill Gates", "Tim Berners-Lee", "Ray Tomlinson", "Steve Jobs"],
+        "hi": ["बिल गेट्स", "टिम बर्नर्स-ली", "रे टॉमलिंसन", "स्टीव जॉब्स"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "Email was invented by Ray Tomlinson in 1971. He also chose the '@' symbol to separate the user name from the host name in email addresses. Tim Berners-Lee invented the WWW.",
+        "hi": "ईमेल का आविष्कार 1971 में Ray Tomlinson ने किया। उन्होंने ही ईमेल पते में '@' प्रतीक का उपयोग करने का निर्णय लिया। Tim Berners-Lee ने WWW का आविष्कार किया।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "internet"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck020",
+      "category": "computer-knowledge",
+      "topic": "MS Word",
+      "lang": {
+        "en": "Which shortcut is used to Bold text in MS Word?",
+        "hi": "MS Word में टेक्स्ट Bold करने की शॉर्टकट क्या है?"
+      },
+      "options": {
+        "en": ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + E"],
+        "hi": ["Ctrl + B", "Ctrl + I", "Ctrl + U", "Ctrl + E"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "Ctrl + B makes text Bold in MS Word. Ctrl + I makes text Italic, Ctrl + U underlines text, and Ctrl + E centers text.",
+        "hi": "MS Word में Ctrl + B टेक्स्ट को Bold बनाता है। Ctrl + I Italic करता है, Ctrl + U रेखांकित करता है, Ctrl + E केंद्रित करता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "ms-office"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck021",
+      "category": "computer-knowledge",
+      "topic": "Computer Basics",
+      "lang": {
+        "en": "Which generation of computers used vacuum tubes?",
+        "hi": "कंप्यूटर की किस पीढ़ी में वैक्यूम ट्यूब का उपयोग किया गया था?"
+      },
+      "options": {
+        "en": ["First Generation", "Second Generation", "Third Generation", "Fourth Generation"],
+        "hi": ["प्रथम पीढ़ी", "द्वितीय पीढ़ी", "तृतीय पीढ़ी", "चतुर्थ पीढ़ी"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "First Generation computers (1940s-1950s) used vacuum tubes. Second Generation used transistors, Third Generation used Integrated Circuits (ICs), Fourth Generation uses microprocessors/VLSI.",
+        "hi": "प्रथम पीढ़ी के कंप्यूटर (1940-1950) में वैक्यूम ट्यूब का उपयोग था। द्वितीय पीढ़ी में ट्रांजिस्टर, तृतीय में IC, चतुर्थ में माइक्रोप्रोसेसर।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "history"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck022",
+      "category": "computer-knowledge",
+      "topic": "Internet",
+      "lang": {
+        "en": "What does IP stand for in networking?",
+        "hi": "नेटवर्किंग में IP का पूर्ण रूप क्या है?"
+      },
+      "options": {
+        "en": ["Internet Protocol", "Internal Protocol", "Internet Provider", "Internal Provider"],
+        "hi": ["इंटरनेट प्रोटोकॉल", "इंटरनल प्रोटोकॉल", "इंटरनेट प्रोवाइडर", "इंटरनल प्रोवाइडर"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "IP stands for Internet Protocol. An IP address is a unique numerical label assigned to each device connected to a network. IPv4 uses 32-bit addresses, IPv6 uses 128-bit addresses.",
+        "hi": "IP का पूर्ण रूप Internet Protocol है। IP address प्रत्येक नेटवर्क डिवाइस को दिया गया एक अनूठा संख्यात्मक लेबल है।"
+      },
+      "difficulty": "medium",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "networking"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck023",
+      "category": "computer-knowledge",
+      "topic": "MS Excel",
+      "lang": {
+        "en": "Which symbol is used to start a formula in MS Excel?",
+        "hi": "MS Excel में फॉर्मूला शुरू करने के लिए कौन सा प्रतीक उपयोग किया जाता है?"
+      },
+      "options": {
+        "en": ["# (hash)", "@ (at)", "= (equal)", "$ (dollar)"],
+        "hi": ["# (हैश)", "@ (at)", "= (बराबर)", "$ (डॉलर)"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "In MS Excel, all formulas must start with the = (equal) sign. For example, =SUM(A1:A5) or =A1+B1. Without =, the entry is treated as text.",
+        "hi": "MS Excel में सभी फॉर्मूले = (बराबर) चिह्न से शुरू होने चाहिए। उदाहरण: =SUM(A1:A5) या =A1+B1। बिना = के प्रविष्टि टेक्स्ट मानी जाती है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "ms-office"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck024",
+      "category": "computer-knowledge",
+      "topic": "Hardware",
+      "lang": {
+        "en": "Which component is called the 'brain' of a computer?",
+        "hi": "कंप्यूटर के किस घटक को 'मस्तिष्क' कहा जाता है?"
+      },
+      "options": {
+        "en": ["Hard Disk", "RAM", "CPU", "Monitor"],
+        "hi": ["हार्ड डिस्क", "RAM", "CPU", "मॉनिटर"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "CPU (Central Processing Unit) is called the 'brain' of the computer. It performs all arithmetic and logical operations, controls other components, and executes program instructions.",
+        "hi": "CPU (Central Processing Unit) को कंप्यूटर का 'मस्तिष्क' कहा जाता है। यह सभी अंकगणितीय और तार्किक ऑपरेशन करता है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "hardware"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck025",
+      "category": "computer-knowledge",
+      "topic": "Software",
+      "lang": {
+        "en": "Which is the most popular mobile operating system in India?",
+        "hi": "भारत में सबसे लोकप्रिय मोबाइल ऑपरेटिंग सिस्टम कौन सा है?"
+      },
+      "options": {
+        "en": ["iOS", "Android", "Windows Phone", "BlackBerry OS"],
+        "hi": ["iOS", "Android", "Windows Phone", "BlackBerry OS"]
+      },
+      "correct": 1,
+      "explanation": {
+        "en": "Android is the most popular mobile operating system in India and globally, with over 70% market share. It is developed by Google and is open-source. iOS is Apple's mobile OS.",
+        "hi": "Android भारत और विश्व में सबसे लोकप्रिय मोबाइल ऑपरेटिंग सिस्टम है, जिसकी 70% से अधिक बाजार हिस्सेदारी है। इसे Google ने विकसित किया है।"
+      },
+      "difficulty": "easy",
+      "tier": "free",
+      "tags": ["ssc", "hssc", "banking", "mobile"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck026",
+      "category": "computer-knowledge",
+      "topic": "Computer Basics",
+      "lang": {
+        "en": "Full form of BIOS is:",
+        "hi": "BIOS का पूर्ण रूप है:"
+      },
+      "options": {
+        "en": ["Basic Input Output System", "Binary Input Output System", "Basic Integrated Output System", "Boot Input Output System"],
+        "hi": ["बेसिक इनपुट आउटपुट सिस्टम", "बाइनरी इनपुट आउटपुट सिस्टम", "बेसिक इंटीग्रेटेड आउटपुट सिस्टम", "बूट इनपुट आउटपुट सिस्टम"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "BIOS stands for Basic Input Output System. It is firmware stored in ROM that initializes hardware during the boot process and provides runtime services for operating systems.",
+        "hi": "BIOS का पूर्ण रूप Basic Input Output System है। यह ROM में संग्रहीत फर्मवेयर है जो बूट प्रक्रिया के दौरान हार्डवेयर को प्रारंभ करता है।"
+      },
+      "difficulty": "medium",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "hardware"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck027",
+      "category": "computer-knowledge",
+      "topic": "Internet",
+      "lang": {
+        "en": "Which protocol is used for sending emails?",
+        "hi": "ईमेल भेजने के लिए कौन सा प्रोटोकॉल उपयोग किया जाता है?"
+      },
+      "options": {
+        "en": ["HTTP", "FTP", "SMTP", "TCP"],
+        "hi": ["HTTP", "FTP", "SMTP", "TCP"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "SMTP (Simple Mail Transfer Protocol) is used for sending emails. POP3 and IMAP are used for receiving emails. HTTP is for web browsing, FTP for file transfer.",
+        "hi": "SMTP (Simple Mail Transfer Protocol) ईमेल भेजने के लिए उपयोग किया जाता है। POP3 और IMAP ईमेल प्राप्त करने के लिए उपयोग होते हैं।"
+      },
+      "difficulty": "medium",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "networking"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck028",
+      "category": "computer-knowledge",
+      "topic": "Number System",
+      "lang": {
+        "en": "Hexadecimal number system has base:",
+        "hi": "हेक्साडेसिमल संख्या प्रणाली का आधार है:"
+      },
+      "options": {
+        "en": ["8", "10", "16", "2"],
+        "hi": ["8", "10", "16", "2"]
+      },
+      "correct": 2,
+      "explanation": {
+        "en": "Hexadecimal number system has base 16, using digits 0-9 and letters A-F. Binary has base 2 (0,1), Octal has base 8 (0-7), Decimal has base 10 (0-9).",
+        "hi": "हेक्साडेसिमल संख्या प्रणाली का आधार 16 है, जो 0-9 अंक और A-F अक्षर उपयोग करती है। बाइनरी का आधार 2, ऑक्टल 8, डेसिमल 10।"
+      },
+      "difficulty": "medium",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "number-system"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck029",
+      "category": "computer-knowledge",
+      "topic": "Computer Basics",
+      "lang": {
+        "en": "ALU in a computer stands for:",
+        "hi": "कंप्यूटर में ALU का पूर्ण रूप है:"
+      },
+      "options": {
+        "en": ["Arithmetic Logic Unit", "Advanced Logic Unit", "Arithmetic Level Unit", "Automated Logic Unit"],
+        "hi": ["अरिथमेटिक लॉजिक यूनिट", "एडवांस्ड लॉजिक यूनिट", "अरिथमेटिक लेवल यूनिट", "ऑटोमेटेड लॉजिक यूनिट"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "ALU stands for Arithmetic Logic Unit. It is a component of the CPU that performs arithmetic operations (addition, subtraction) and logical operations (AND, OR, NOT).",
+        "hi": "ALU का पूर्ण रूप Arithmetic Logic Unit है। यह CPU का एक घटक है जो अंकगणितीय ऑपरेशन (जोड़, घटाव) और तार्किक ऑपरेशन (AND, OR, NOT) करता है।"
+      },
+      "difficulty": "medium",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "hardware"],
+      "addedOn": "2026-11-24"
+    },
+    {
+      "id": "ck030",
+      "category": "computer-knowledge",
+      "topic": "Internet",
+      "lang": {
+        "en": "What does DNS stand for?",
+        "hi": "DNS का पूर्ण रूप क्या है?"
+      },
+      "options": {
+        "en": ["Domain Name System", "Data Network System", "Domain Network Service", "Data Name Server"],
+        "hi": ["डोमेन नेम सिस्टम", "डेटा नेटवर्क सिस्टम", "डोमेन नेटवर्क सर्विस", "डेटा नेम सर्वर"]
+      },
+      "correct": 0,
+      "explanation": {
+        "en": "DNS stands for Domain Name System. It translates human-readable domain names (like www.google.com) into IP addresses (like 142.250.80.46) that computers use to identify each other.",
+        "hi": "DNS का पूर्ण रूप Domain Name System है। यह मानव-पठनीय डोमेन नाम (जैसे www.google.com) को IP पते में अनुवादित करता है।"
+      },
+      "difficulty": "hard",
+      "tier": "premium",
+      "tags": ["ssc", "hssc", "banking", "networking"],
+      "addedOn": "2026-11-24"
+    }
+  ]
+}
